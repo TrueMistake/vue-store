@@ -8,6 +8,7 @@ export default {
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/101/454_700_2/BAS-10104_101_20.jpg?cdn=1627393262',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/101/454_700_2/BAS-10104_101_20.jpg?cdn=1627393262', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/101/454_700_2/BAS-10104_101_20.jpg?cdn=1627393262', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/101/454_700_2/BAS-10104_101_20.jpg?cdn=1627393262'],
                 colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                sizes: ['M', 'L', 'S', 'XL'],
                 specifications: '38% акрил, 24% полиэстер, 15% шерсть, 14% эластан',
                 price:1000
             },
@@ -18,6 +19,7 @@ export default {
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436'],
                 colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                sizes: ['M', 'S'],
                 specifications: '60% акрил, 24% полиэстер, 65% шерсть, 56% эластан',
                 price:2000
             },
@@ -28,6 +30,7 @@ export default {
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282'],
                 colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                sizes: ['XL', 'L', 'S'],
                 specifications: '62% акрил, 86% полиэстер, 33% шерсть, 4% эластан',
                 price:3000
             },
@@ -38,6 +41,7 @@ export default {
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/211/454_700_2/BAS-10105_211_20.jpg?cdn=1627393262',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/211/454_700_2/BAS-10105_211_20.jpg?cdn=1627393262', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/211/454_700_2/BAS-10105_211_20.jpg?cdn=1627393262', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/211/454_700_2/BAS-10105_211_20.jpg?cdn=1627393262'],
                 colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                sizes: ['L', 'XL'],
                 specifications: '13% акрил, 24% полиэстер, 45% шерсть, 16% эластан',
                 price:4000
             },
@@ -48,6 +52,7 @@ export default {
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/814/454_700_2/BAS-10105_814_20.jpg?cdn=1627369501',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/814/454_700_2/BAS-10105_814_20.jpg?cdn=1627369501', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/814/454_700_2/BAS-10105_814_20.jpg?cdn=1627369501', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/814/454_700_2/BAS-10105_814_20.jpg?cdn=1627369501'],
                 colors:[{id: 5, color: '#000'}, {id:6, color: '#ff0000'}],
+                sizes: ['X', 'XL', 'XXL'],
                 specifications: '32% акрил, 29% полиэстер, 54% шерсть, 4% эластан',
                 price:5000
             },
@@ -58,6 +63,7 @@ export default {
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501'],
                 colors:[{id: 5, color: '#000'}, {id:6, color: '#ff0000'}],
+                sizes: ['M', 'L', 'S'],
                 specifications: '36% акрил, 2% полиэстер, 79% шерсть, 4% эластан',
                 price:6000
             }
@@ -75,20 +81,274 @@ export default {
                 link: '',
                 url: 'https://cdn.finnflare.com/upload/rk/33d/1920x600mrfdec.jpg?cdn=1638886995'
             },
-        ]
+        ],
+        totalCount: 0,
+        totalPrice: 0,
+        store: {'card':[]},
+        arrToBuy: [],
+        props: {},
+        filterColor: null,
+        filterSize: null,
+        filterMin: null,
+        filterMax: null,
+        sorting: ''
     },
     mutations: {
+        totalCount(state, payload) {
+            state.totalCount += payload;
+            state.store['count'] = state.totalCount;
+        },
+        totalPrice(state, payload) {
+            state.totalPrice += +payload;
+            state.store['total'] = state.totalPrice;
+        },
+        addStore(state, payload) {
+            let mass = state.store.card.filter(el => el.id === payload.id);
+            if (state.store.card.length && mass.length) {
+                for (let i = 0; i < state.store.card.length; i++) {
+                    if (state.store.card[i].id === payload.id ){
+                        state.store.card[i].buy += 1;
+                    }
+                }
+            } else {
+                state.store.card.push({
+                    id: payload.id,
+                    img: payload.img,
+                    name: payload.name,
+                    price: payload.price,
+                    buy: 1
+                });
+            }
+            state.arrToBuy = state.store.card;
+        },
+        removeStore(state, payload) {
+            let mass = state.store.card.filter(el => el.id === payload.id);
+            if (state.store.card.length && mass.length) {
+                state.store.card.forEach((item, key) => {
+                    if (item.id === payload ){
+                        item.buy -= 1;
+                        if (item.buy < 1) {
+                            state.store.card.splice(key, 1);
+                        }
+                    }
+                })
+            }
+            state.arrToBuy = state.store.card;
+        },
+        remoteBasket(state, payload) {
+            let mass = state.arrToBuy.filter(el => el.id === payload);
+            if (state.arrToBuy.length && mass.length) {
+                state.arrToBuy.forEach((item, key) => {
+                    if (item.id === payload ){
+                        item.buy -= 1;
+                        if (item.buy < 1) {
+                            state.arrToBuy.splice(key, 1);
+                        }
+                    }
+                })
+            }
+            state.arrToBuy = state.store.card;
+        },
+        addLocalStorage(state) {
+            localStorage.setItem('myProduct', JSON.stringify(state.store))
+        },
+        addSortLocalStorage(state) {
+            localStorage.setItem('myCatalogSort', JSON.stringify(state.sorting))
+        },
+        clearBasket(state) {
+            state.arrToBuy = [];
+        },
+        changeCount(state, payload) {
+            const {id, count} = payload;
+            state.arrToBuy.filter(item => {
+                if (item.id === id) {
+                    item.buy = count;
+                }
+            });
+        },
+        recalculation(state) {
+            state.totalCount = 0;
+            state.totalPrice = 0;
+            state.arrToBuy.map(el => {
+                state.totalCount += +el.buy;
+                state.totalPrice += +el.buy * el.price;
+            });
+            state.store['count'] = state.totalCount;
+            state.store['total'] = state.totalPrice;
+        },
+        removeProduct(state, payload) {
+            state.arrToBuy.map((todo, key) => {
+                if (key === payload) {
+                    state.arrToBuy.splice(payload, 1);
+                }
+            })
+            state.store.card.map((el, key) => {
+                if (key === payload) {
+                    state.store.card.splice(payload, 1);
+                }
+            })
+        },
+        property(state) {
+            const color = [];
+            const price = [];
+            const size = [];
+            state.products.map(item => {
+                item.colors.forEach(el => {
+                    color.push(el.color);
+                });
+                item.sizes.forEach(el => {
+                    size.push(el)
+                })
+                price.push(item.price);
+            });
 
+            const min = price.sort().shift();
+            const max = price.sort().pop();
+
+            state.props['color'] = [...new Set(color)];
+            state.props['price'] = [min, max];
+            state.props['size'] = [...new Set(size)];
+        },
+        filterSearch(state, payload) {
+            const arr = [];
+            state.products.forEach(prod => {
+                prod.colors.forEach(item => {
+                    payload.forEach(el => {
+                        if (item.color == el) {
+                            arr.push(item.id)
+                        }
+                    })
+                })
+            });
+            state.filterColor = [...new Set(arr)];
+        },
+        filterSearchSize(state, payload) {
+            const arr = [];
+            state.products.forEach(prod => {
+                prod.sizes.forEach(item => {
+                    payload.forEach(el => {
+                        if (item == el) {
+                            arr.push(prod.id)
+                        }
+                    })
+                })
+            });
+            state.filterSize = [...new Set(arr)];
+        },
+        filterMin(state, payload) {
+            state.filterMin = payload;
+        },
+        filterMax(state, payload) {
+            state.filterMax = payload;
+        },
+        sorting(state, payload) {
+            state.sorting = payload;
+        }
     },
     actions: {
-
-     },
+        addBasket(state, payload) {
+            const item = state.state.products.find(item => item.id === payload.id);
+            state.commit('totalCount', payload.count);
+            state.commit('totalPrice', item.price);
+            state.commit('addStore', {
+                id: item.id,
+                img: item.img,
+                name: item.name,
+                price: item.price,
+                buy: 1
+            });
+            state.commit('addLocalStorage', item)
+        },
+        remoteBasket(state, payload) {
+            const item = state.state.products.find(item => item.id === payload.id);
+            const { id, count } = payload;
+            state.commit('remoteBasket', id);
+            state.commit('totalCount', -count);
+            state.commit('totalPrice', -item.price);
+            state.commit('removeStore', id);
+            state.commit('addLocalStorage', item);
+        },
+        clearBasket(state) {
+            state.commit('clearBasket');
+            localStorage.clear();
+        },
+        changeCount(state, payload) {
+            state.commit('changeCount', payload);
+            state.commit('recalculation');
+            state.commit('addLocalStorage');
+        },
+        removeProduct(state, payload) {
+            state.commit('removeProduct', payload);
+            state.commit('recalculation');
+            state.commit('addLocalStorage');
+        },
+        property(state) {
+            state.commit('property');
+        },
+        filterSearch(state, payload) {
+            state.commit('filterSearch', payload)
+        },
+        filterSearchSize(state, payload) {
+            state.commit('filterSearchSize', payload)
+        },
+        filterMin(state, payload) {
+            state.commit('filterMin',payload)
+        },
+        filterMax(state, payload) {
+            state.commit('filterMax',payload)
+        },
+        sorting(state, payload) {
+            state.commit('sorting', payload)
+            state.commit('addSortLocalStorage', payload)
+        }
+    },
     getters: {
         products: state => state.products,
         mainSlider: state => state.mainSlider,
         productDetailID(state) {
             return productId => {
                 return state.products.find(product => product.id === +productId)
+            }
+        },
+        totalCount: state => state.totalCount,
+        totalPrice: state => state.totalPrice,
+        arrToBuy: state => state.arrToBuy,
+        property: state => state.props,
+        filterSearch: state => state.filterColor,
+        filterResult(state) {
+            const arr = [];
+            state.products.filter(product => {
+                if (state.filterColor != null || state.filterSize != null) {
+                    state.filterColor.filter(el => {
+                        if (el === product.id && product.price >= +state.filterMin && product.price <= +state.filterMax) {
+                            arr.push(product)
+                        }
+                    })
+                    state.filterSize.filter(el => {
+                        if (el === product.id && product.price >= +state.filterMin && product.price <= +state.filterMax) {
+                            arr.push(product)
+                        }
+                    })
+                } else {
+                    if (state.filterMin != null || state.filterMax != null) {
+                        if (product.price >= +state.filterMin && product.price <= +state.filterMax) {
+                            arr.push(product)
+                        }
+                    }
+                }
+            })
+            return arr.length > 0 ? [...new Set(arr)] : state.products;
+        },
+        sorting: state => state.sorting,
+        localStore(state) {
+            if (localStorage.getItem('myProduct')) {
+                state.totalCount = JSON.parse(localStorage.getItem('myProduct')).count;
+                state.totalPrice = JSON.parse(localStorage.getItem('myProduct')).total;
+                state.store.card = JSON.parse(localStorage.getItem('myProduct')).card;
+                state.arrToBuy = JSON.parse(localStorage.getItem('myProduct')).card;
+            }
+            if (localStorage.getItem('myCatalogSort')) {
+                state.sorting = JSON.parse(localStorage.getItem('myCatalogSort')).sorting;
             }
         }
     }

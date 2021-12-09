@@ -7,7 +7,7 @@
         <div class="product-item__color" v-for="el of item.colors" :key="el.id" :style="{background: el.color}"></div>
       </div>
       <div class="product-item__sizes">
-        <div class="product-item__size"></div>
+        <div class="product-item__size" v-for="el of item.sizes" :key="el.id">{{el}}</div>
       </div>
       <div class="product-item__bottom">
         <div class="product-item__price">{{item.price}} ₽</div>
@@ -18,9 +18,16 @@
 </template>
 
 <script>
+
 export default {
   name: "Products",
-  props: ['products']
+  props: ['products'],
+  setup() {
+
+    return{
+
+    }
+  }
 }
 </script>
 
@@ -67,6 +74,17 @@ export default {
     height: 100%;
     border-radius: 50%;
     border: 1px solid #fff;
+  }
+  .product-item__sizes{
+    display: grid;
+    grid-template-columns: repeat(6, minmax(10px, max-content));
+    grid-column-gap: 5px;
+    margin: 10px 0;
+  }
+  .product-item__size{
+    font-size: 14px;
+    line-height: 16px;
+    color: #000;
   }
   .product-item__bottom{
     display: grid;

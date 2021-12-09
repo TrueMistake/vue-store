@@ -2,13 +2,10 @@
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <router-link to="/" tag="a" exact exact-active-class="_active" class="nav-link">Главная</router-link>
+        <router-link :to="{name: 'Catalog'}" tag="a" exact exact-active-class="_active" class="nav-link">Женщинам</router-link>
       </li>
       <li class="nav-item">
-        <router-link :to="{name: 'Catalog'}" tag="a" exact exact-active-class="_active" class="nav-link">Каталог</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link :to="{name: 'About'}" tag="a" exact exact-active-class="_active" class="nav-link">О нас</router-link>
+        <router-link :to="{name: 'Catalog'}" tag="a" exact exact-active-class="_active" class="nav-link">Мужчинам</router-link>
       </li>
     </ul>
   </nav>

@@ -11,10 +11,16 @@
         </div>
         <ul class="footer-list">
           <li class="footer-item">
-            <router-link :to="{name: 'Catalog'}" tag="a" exact exact-active-class="_active" class="nav-link">Каталог</router-link>
+            <router-link :to="{name: 'Catalog'}" tag="a" exact class="nav-link">Женщинам</router-link>
           </li>
-          <li class="nav-item">
-            <router-link :to="{name: 'About'}" tag="a" exact exact-active-class="_active" class="nav-link">О нас</router-link>
+          <li class="footer-item">
+            <router-link :to="{name: 'Catalog'}" tag="a" exact class="nav-link">Мужчинам</router-link>
+          </li>
+          <li class="footer-item">
+            <router-link :to="{name: 'About'}" tag="a" exact class="nav-link">О нас</router-link>
+          </li>
+          <li class="footer-item">
+            <router-link :to="{name: 'Contacts'}" tag="a" exact class="nav-link">Контакты</router-link>
           </li>
         </ul>
         <div class="footer-contacts">
@@ -27,7 +33,7 @@
 
 <script>
 export default {
-name: "Footer"
+  name: "Footer"
 }
 </script>
 

@@ -6,7 +6,7 @@
           <div class="catalog-wrapper">
               <app-sort></app-sort>
               <div class="catalog-list">
-                <app-products :products="products"></app-products>
+                <app-products :products="filterProducts"></app-products>
               </div>
           </div>
         </div>
@@ -32,13 +32,16 @@ export default {
     const store = useStore();
 
     return{
-      products: computed(() => store.getters.products)
+      filterProducts: computed(() => store.getters.filterResult)
     }
   }
 }
 </script>
 
 <style scoped>
+  .catalog{
+    margin-bottom: 100px;
+  }
   .catalog-wrap{
     display: grid;
     grid-template-columns: 300px 1fr;
