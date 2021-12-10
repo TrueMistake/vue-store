@@ -25,11 +25,11 @@
             <div class="basket-link__order">Оформить</div>
           </router-link>
         </div>
-        <router-link class="basket-back" to="/products">Назад</router-link>
+        <router-link class="basket-back" to="/catalog">Назад</router-link>
       </div>
       <div class="empty" v-else>
         <h1>Корзина пуста</h1>
-        <router-link class="basket-back" to="/products">Назад</router-link>
+        <router-link class="basket-back" to="/catalog">Назад</router-link>
       </div>
     </div>
   </div>

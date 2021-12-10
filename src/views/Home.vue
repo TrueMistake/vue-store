@@ -1,7 +1,9 @@
 <template>
   <main class="main">
     <app-swiper></app-swiper>
-    <app-slider-product></app-slider-product>
+    <div class="container">
+      <app-slider-product></app-slider-product>
+    </div>
     <h1>Магазин True</h1>
     <div class="main-text">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eligendi eum fugiat harum nam obcaecati odit omnis

@@ -57,8 +57,10 @@ export default {
       store.dispatch('filterSearchSize', sizes.value);
       store.dispatch('filterMin', min);
       store.dispatch('filterMax', max);
+      store.dispatch('filterResult');
     }
     const filterClear = () => {
+      store.dispatch('filterClear', []);
     }
 
 

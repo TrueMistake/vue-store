@@ -1,6 +1,6 @@
 <template>
   <div class="sort">
-    <select name="" class="sort-select" v-model="selected">
+    <select name="" class="sort-select" v-model="selected" @change="sort(this)">
       <option value=""></option>
       <option value="sortPopular">По популярности</option>
       <option value="priceUp">Цена по возростанию</option>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import {ref, onBeforeMount} from 'vue'
+import {ref} from 'vue'
 import {useStore} from 'vuex'
 
 export default {
@@ -19,12 +19,8 @@ export default {
     const store = useStore();
     const selected = ref('');
 
-    onBeforeMount(() => {
-      selected.value = store.getters.sorting;
-    })
-
     const sort = () => {
-      selected.value.length > 0 ? store.dispatch('sorting') : null;
+      selected.value.length > 0 ? store.dispatch('sorting', selected.value) : null;
     }
 
     return {

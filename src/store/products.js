@@ -2,6 +2,17 @@ export default {
     state: {
         products: [
             {
+                id: 3,
+                article: 102935,
+                name: 'Женская кофта 3',
+                img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282',
+                imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282'],
+                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                sizes: ['XL', 'L', 'S'],
+                specifications: '62% акрил, 86% полиэстер, 33% шерсть, 4% эластан',
+                price:3000
+            },
+            {
                 id: 1,
                 article: 102561,
                 name: 'Женская кофта 1',
@@ -13,26 +24,15 @@ export default {
                 price:1000
             },
             {
-                id: 2,
-                article: 102565,
-                name: 'Женская кофта 2',
-                img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436',
-                imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436'],
-                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
-                sizes: ['M', 'S'],
-                specifications: '60% акрил, 24% полиэстер, 65% шерсть, 56% эластан',
-                price:2000
-            },
-            {
-                id: 3,
-                article: 102935,
-                name: 'Женская кофта 3',
-                img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282',
-                imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282'],
-                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
-                sizes: ['XL', 'L', 'S'],
-                specifications: '62% акрил, 86% полиэстер, 33% шерсть, 4% эластан',
-                price:3000
+                id: 6,
+                article: 984232,
+                name: 'Женская кофта 6',
+                img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501',
+                imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501'],
+                colors:[{id: 5, color: '#000'}, {id:6, color: '#ff0000'}],
+                sizes: ['M', 'L', 'S'],
+                specifications: '36% акрил, 2% полиэстер, 79% шерсть, 4% эластан',
+                price:6000
             },
             {
                 id: 4,
@@ -46,6 +46,17 @@ export default {
                 price:4000
             },
             {
+                id: 2,
+                article: 102565,
+                name: 'Женская кофта 2',
+                img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436',
+                imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436'],
+                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                sizes: ['M', 'S'],
+                specifications: '60% акрил, 24% полиэстер, 65% шерсть, 56% эластан',
+                price:2000
+            },
+            {
                 id: 5,
                 article: 136412,
                 name: 'Женская кофта 5',
@@ -56,17 +67,7 @@ export default {
                 specifications: '32% акрил, 29% полиэстер, 54% шерсть, 4% эластан',
                 price:5000
             },
-            {
-                id: 6,
-                article: 984232,
-                name: 'Женская кофта 6',
-                img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501',
-                imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501'],
-                colors:[{id: 5, color: '#000'}, {id:6, color: '#ff0000'}],
-                sizes: ['M', 'L', 'S'],
-                specifications: '36% акрил, 2% полиэстер, 79% шерсть, 4% эластан',
-                price:6000
-            }
+
         ],
         mainSlider: [
             {
@@ -91,7 +92,8 @@ export default {
         filterSize: null,
         filterMin: null,
         filterMax: null,
-        sorting: ''
+        sorting: '',
+        totalFilter:[]
     },
     mutations: {
         totalCount(state, payload) {
@@ -215,7 +217,7 @@ export default {
                 prod.colors.forEach(item => {
                     payload.forEach(el => {
                         if (item.color == el) {
-                            arr.push(item.id)
+                            arr.push(el)
                         }
                     })
                 })
@@ -228,7 +230,7 @@ export default {
                 prod.sizes.forEach(item => {
                     payload.forEach(el => {
                         if (item == el) {
-                            arr.push(prod.id)
+                            arr.push(el)
                         }
                     })
                 })
@@ -241,8 +243,43 @@ export default {
         filterMax(state, payload) {
             state.filterMax = payload;
         },
-        sorting(state, payload) {
+        sortingType(state, payload) {
             state.sorting = payload;
+        },
+        sortingProduct(state, payload){
+            console.log('sortingProduct', state.totalFilter)
+            if (state.totalFilter.length > 0) {
+                if (payload == 'priceUp') {
+                    state.totalFilter.sort(function (a, b) {
+                        return a.price - b.price;
+                    });
+                    state.totalFilter = state.products;
+                } else if (payload == 'priceDown'){
+                    state.totalFilter.sort(function (a, b) {
+                        return b.price - a.price;
+                    });
+                    state.totalFilter = state.products;
+                }
+            } else {
+                console.log('payload',payload)
+                if (payload == 'priceUp') {
+                    state.products.sort(function (a, b) {
+                        return a.price - b.price;
+                    });
+                    state.totalFilter = state.products;
+                } else if (payload == 'priceDown'){
+                    state.products.sort(function (a, b) {
+                        return b.price - a.price;
+                    });
+                    state.totalFilter = state.products;
+                }
+            }
+        },
+        filterResult(state, payload) {
+            state.totalFilter = payload;
+        },
+        filterClear(state, payload){
+            state.totalFilter = payload
         }
     },
     actions: {
@@ -298,8 +335,53 @@ export default {
             state.commit('filterMax',payload)
         },
         sorting(state, payload) {
-            state.commit('sorting', payload)
+            state.commit('sortingProduct', payload)
+            state.commit('sortingType', payload)
             state.commit('addSortLocalStorage', payload)
+        },
+        filterResult(state) {
+            const color = [];
+            const size = [];
+            let result = [];
+            state.state.products.filter(product => {
+                product.colors.filter(item => {
+                    if (state.state.filterColor != null) {
+                        state.state.filterColor.filter(el => {
+                            if (el === item.color && product.price >= +state.state.filterMin && product.price <= +state.state.filterMax) {
+                                color.push(product)
+                            }
+                        })
+                    }
+                })
+
+                product.sizes.filter(item => {
+                    if (state.state.filterSize != null) {
+                        state.state.filterSize.filter(el => {
+                            if (el === item && product.price >= +state.state.filterMin && product.price <= +state.state.filterMax) {
+                                size.push(product)
+                            }
+                        })
+                    }
+                })
+            })
+
+            if (color.length > 0 && size.length > 0) {
+                result = color.filter(item => size.indexOf(item) !== -1);
+                state.commit('filterResult', result)
+                return result.length > 0 ? [...new Set(result)] : state.state.products;
+            } else if (color.length > 0) {
+                state.commit('filterResult', color)
+                return result = color;
+            } else if (size.length > 0) {
+                state.commit('filterResult', size)
+                return result = size;
+            } else {
+                state.commit('filterResult', state.state.products)
+                return result = state.state.products;
+            }
+        },
+        filterClear(state, payload) {
+            state.commit('filterClear', payload)
         }
     },
     getters: {
@@ -315,30 +397,7 @@ export default {
         arrToBuy: state => state.arrToBuy,
         property: state => state.props,
         filterSearch: state => state.filterColor,
-        filterResult(state) {
-            const arr = [];
-            state.products.filter(product => {
-                if (state.filterColor != null || state.filterSize != null) {
-                    state.filterColor.filter(el => {
-                        if (el === product.id && product.price >= +state.filterMin && product.price <= +state.filterMax) {
-                            arr.push(product)
-                        }
-                    })
-                    state.filterSize.filter(el => {
-                        if (el === product.id && product.price >= +state.filterMin && product.price <= +state.filterMax) {
-                            arr.push(product)
-                        }
-                    })
-                } else {
-                    if (state.filterMin != null || state.filterMax != null) {
-                        if (product.price >= +state.filterMin && product.price <= +state.filterMax) {
-                            arr.push(product)
-                        }
-                    }
-                }
-            })
-            return arr.length > 0 ? [...new Set(arr)] : state.products;
-        },
+        filterResult: state => state.totalFilter.length > 0 ? state.totalFilter : state.products,
         sorting: state => state.sorting,
         localStore(state) {
             if (localStorage.getItem('myProduct')) {
@@ -347,9 +406,9 @@ export default {
                 state.store.card = JSON.parse(localStorage.getItem('myProduct')).card;
                 state.arrToBuy = JSON.parse(localStorage.getItem('myProduct')).card;
             }
-            if (localStorage.getItem('myCatalogSort')) {
+            /*if (localStorage.getItem('myCatalogSort')) {
                 state.sorting = JSON.parse(localStorage.getItem('myCatalogSort')).sorting;
-            }
+            }*/
         }
     }
 }
