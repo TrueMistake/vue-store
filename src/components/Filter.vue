@@ -4,8 +4,16 @@
       <div class="filter-title">Фильтр</div>
       <div class="filter-item">
         <div class="filter-item__prices">
-          <input type="text" class="filter-item__price" :min="min" :max="max" v-model="min">
-          <input type="text" class="filter-item__price" :min="min" :max="max" v-model="max">
+          <input type="number" class="filter-item__price"
+                 :min="min"
+                 :max="max"
+                 v-model="inputMin"
+                 @input="changeMin">
+          <input type="number" class="filter-item__price"
+                 :min="min"
+                 :max="max"
+                 v-model="inputMax"
+                 @input="changeMax">
         </div>
       </div>
       <div class="filter-item">
@@ -44,13 +52,28 @@ export default {
     const sizes = ref([]);
     const min = ref(null);
     const max = ref(null);
+    const inputMin = ref(null);
+    const inputMax = ref(null);
 
     onBeforeMount(() => {
       store.dispatch('property');
       const property = store.getters.property;
       min.value = property.price[0];
       max.value = property.price[1];
+      inputMin.value = property.price[0];
+      inputMax.value = property.price[1];
     })
+
+    const changeMin = () => {
+      if (min.value < inputMin.value) {
+        return inputMin.value = +min.value
+      }
+    }
+    const changeMax = () => {
+      if (max.value < inputMax.value) {
+        return inputMax.value = +max.value
+      }
+    }
 
     const filterSuccess = () => {
       store.dispatch('filterSearch', colors.value);
@@ -59,6 +82,7 @@ export default {
       store.dispatch('filterMax', max);
       store.dispatch('filterResult');
     }
+
     const filterClear = () => {
       store.dispatch('filterClear', []);
     }
@@ -70,6 +94,10 @@ export default {
       sizes,
       min,
       max,
+      inputMin,
+      inputMax,
+      changeMin,
+      changeMax,
       filterSuccess,
       filterClear
     }
@@ -102,6 +130,13 @@ export default {
     display: block;
     width: 100%;
     padding: 5px 10px;
+  }
+  input[type='number'] {
+    -moz-appearance:textfield;
+  }
+  .filter-item__price::-webkit-outer-spin-button,
+  .filter-item__price::-webkit-inner-spin-button{
+    -webkit-appearance: none;
   }
   .filter-item{
     margin-bottom: 15px;

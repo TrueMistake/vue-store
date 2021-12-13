@@ -247,7 +247,6 @@ export default {
             state.sorting = payload;
         },
         sortingProduct(state, payload){
-            console.log('sortingProduct', state.totalFilter)
             if (state.totalFilter.length > 0) {
                 if (payload == 'priceUp') {
                     state.totalFilter.sort(function (a, b) {
@@ -261,7 +260,6 @@ export default {
                     state.totalFilter = state.products;
                 }
             } else {
-                console.log('payload',payload)
                 if (payload == 'priceUp') {
                     state.products.sort(function (a, b) {
                         return a.price - b.price;
@@ -275,8 +273,63 @@ export default {
                 }
             }
         },
-        filterResult(state, payload) {
-            state.totalFilter = payload;
+        filterResult(state) {
+            const color = [];
+            const size = [];
+            const price = [];
+            let result = [];
+            state.products.filter(product => {
+                product.colors.filter(item => {
+                    if (state.filterColor != null) {
+                        state.filterColor.filter(el => {
+                            if (el === item.color) {
+                                color.push(product)
+                            }
+                        })
+                    }
+                })
+
+                product.sizes.filter(item => {
+                    if (state.filterSize != null) {
+                        state.filterSize.filter(el => {
+                            if (el === item) {
+                                size.push(product)
+                            }
+                        })
+                    }
+                })
+            })
+
+            if (state.props.price[0] != state.filterMin || state.props.price[1] != state.filterMax) {
+                state.products.filter(product => {
+                    if (product.price >= +state.filterMin && product.price <= +state.filterMax) {
+                        price.push(product)
+                    }
+                })
+            }
+
+            if (color.length > 0 && size.length > 0 && price.length > 0) {
+                const prop = color.filter(item => size.indexOf(item) !== -1);
+                result = prop.filter(item => price.indexOf(item) !== -1);
+                return state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
+            }else if (color.length > 0 && size.length > 0) {
+                result = color.filter(item => size.indexOf(item) !== -1);
+                return state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
+            } else if (color.length > 0 && price.length > 0) {
+                result = color.filter(item => price.indexOf(item) !== -1);
+                return state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
+            } else if (size.length > 0 && price.length > 0) {
+                result = size.filter(item => price.indexOf(item) !== -1);
+                return state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
+            } else if (color.length > 0) {
+                return state.totalFilter = color;
+            } else if (size.length > 0) {
+                return state.totalFilter = size;
+            } else if (price.length > 0) {
+                return state.totalFilter = price;
+            } else {
+                return state.totalFilter = state.products;
+            }
         },
         filterClear(state, payload){
             state.totalFilter = payload
@@ -340,45 +393,7 @@ export default {
             state.commit('addSortLocalStorage', payload)
         },
         filterResult(state) {
-            const color = [];
-            const size = [];
-            let result = [];
-            state.state.products.filter(product => {
-                product.colors.filter(item => {
-                    if (state.state.filterColor != null) {
-                        state.state.filterColor.filter(el => {
-                            if (el === item.color && product.price >= +state.state.filterMin && product.price <= +state.state.filterMax) {
-                                color.push(product)
-                            }
-                        })
-                    }
-                })
-
-                product.sizes.filter(item => {
-                    if (state.state.filterSize != null) {
-                        state.state.filterSize.filter(el => {
-                            if (el === item && product.price >= +state.state.filterMin && product.price <= +state.state.filterMax) {
-                                size.push(product)
-                            }
-                        })
-                    }
-                })
-            })
-
-            if (color.length > 0 && size.length > 0) {
-                result = color.filter(item => size.indexOf(item) !== -1);
-                state.commit('filterResult', result)
-                return result.length > 0 ? [...new Set(result)] : state.state.products;
-            } else if (color.length > 0) {
-                state.commit('filterResult', color)
-                return result = color;
-            } else if (size.length > 0) {
-                state.commit('filterResult', size)
-                return result = size;
-            } else {
-                state.commit('filterResult', state.state.products)
-                return result = state.state.products;
-            }
+            state.commit('filterResult')
         },
         filterClear(state, payload) {
             state.commit('filterClear', payload)
