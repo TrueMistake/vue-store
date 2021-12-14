@@ -18,7 +18,7 @@
 import appFilter from '../../components/Filter'
 import appSort from '../../components/Sort'
 import appProducts from '../../components/Products'
-import {computed} from 'vue'
+import {computed, onBeforeMount} from 'vue'
 import {useStore} from 'vuex'
 
 export default {
@@ -30,6 +30,10 @@ export default {
   },
   setup() {
     const store = useStore();
+
+    onBeforeMount(() =>{
+      store.getters.localStore
+    })
 
     return{
       filterProducts: computed(() => store.getters.filterResult)

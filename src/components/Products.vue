@@ -1,6 +1,6 @@
 <template>
   <router-link :to="'/catalog/' + item.id" tag="a" class="product-item" v-for="item of products" :key="item.id">
-    <img :src="item.img" alt="" class="product-item__img">
+    <img :src="item.img" :alt="item.name" class="product-item__img" :title="item.name">
     <div class="product-item__body">
       <div class="product-item__title">{{item.name}}</div>
       <div class="product-item__colors">
@@ -38,8 +38,10 @@ export default {
   }
   .product-item__img{
     display: block;
+    max-width: 350px;
     width: 100%;
-    height: auto;
+    max-height: 540px;
+    height: 100%;
     object-fit: contain;
   }
   .product-item__body{

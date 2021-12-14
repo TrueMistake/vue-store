@@ -4,7 +4,7 @@
       <div class="header-wrap">
         <div class="header-logo">
           <router-link to="/" class="header-logo__link">
-            <img src="https://i.pinimg.com/originals/30/cb/31/30cb311ba48206cdb09f0a1fe7a3be79.jpg" alt="" class="header-logo__img">
+            <img src="https://i.pinimg.com/originals/30/cb/31/30cb311ba48206cdb09f0a1fe7a3be79.jpg" alt="logo" title="logo" class="header-logo__img">
           </router-link>
         </div>
         <app-search></app-search>
@@ -60,7 +60,7 @@ export default {
   .header-logo__img{
     display: block;
     width: 70px;
-    height: auto;
+    height: 50px;
     object-fit: contain;
   }
   .header-contacts__phone{

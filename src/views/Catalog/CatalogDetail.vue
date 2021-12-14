@@ -48,12 +48,12 @@
             <div class="detail-left">
               <swiper :style="{'--swiper-navigation-color': '#fff','--swiper-pagination-color': '#fff'}" :spaceBetween="10" :navigation="true" :thumbs="{ swiper: thumbsSwiper }" class="mySwiper2">
                 <swiper-slide v-for="(img, key) in product.imgOther" :key="key">
-                  <img class="detail-img" :src="img"/>
+                  <img class="detail-img" :src="img" :alt="product.name" :title="product.name"/>
                 </swiper-slide>
               </swiper>
               <swiper @swiper="setThumbsSwiper" :spaceBetween="10" :slidesPerView="4" :freeMode="true" :watchSlidesProgress="true" class="mySwiper">
                 <swiper-slide v-for="(img, key) in product.imgOther" :key="key">
-                  <img class="detail-left__thumb" :src="img"/>
+                  <img class="detail-left__thumb" :src="img" :alt="product.name" :title="product.name"/>
                 </swiper-slide>
               </swiper>
             </div>

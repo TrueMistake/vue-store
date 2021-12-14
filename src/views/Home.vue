@@ -2,7 +2,9 @@
   <main class="main">
     <app-swiper></app-swiper>
     <div class="container">
-      <app-slider-product></app-slider-product>
+      <app-slider-product title="БЕСТСЕЛЛЕРЫ" :products="products"></app-slider-product>
+      <app-slider-product title="КУРТКИ МУЖСКИЕ" :products="sliderMan"></app-slider-product>
+      <app-slider-product title="ЖЕНСКИЕ КОВТЫ" :products="sliderWoman"></app-slider-product>
     </div>
     <h1>Магазин True</h1>
     <div class="main-text">
@@ -20,9 +22,25 @@
 <script>
 import appSwiper from '../components/MainSlider'
 import appSliderProduct from '../components/SliderProducts'
+import {useStore} from 'vuex';
+import {onBeforeMount, computed} from 'vue'
 
 export default {
   name: 'Main',
+  setup() {
+    const store = useStore();
+
+    onBeforeMount(() => {
+      store.dispatch('property');
+      console.log('store.getters.sliderMan',store.getters.sliderMan)
+    })
+
+    return{
+      products: computed(() => store.getters.hits),
+      sliderMan: computed(() => store.getters.sliderMan),
+      sliderWoman: computed(() => store.getters.sliderWoman),
+    }
+  },
   components: {
     'app-swiper': appSwiper,
     'app-slider-product': appSliderProduct

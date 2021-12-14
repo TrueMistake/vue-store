@@ -1,6 +1,6 @@
 <template>
   <div class="index-slider">
-    <div class="index-slider__h2">БЕСТСЕЛЛЕРЫ</div>
+    <div class="index-slider__h2">{{title}}</div>
     <swiper :slidesPerView="4" :spaceBetween="30" :pagination='{"clickable": true}' class="mySwiper slider-product">
       <swiper-slide v-for="item of products" :key="item.id">
         <router-link :to="'/catalog/' + item.id" tag="a" class="product-item">
@@ -33,22 +33,13 @@ import "swiper/modules/pagination/pagination.min.css"
 
 import SwiperCore, {Navigation} from 'swiper';
 SwiperCore.use([Navigation]);
-
-import {computed} from 'vue'
-import {useStore} from 'vuex'
 export default {
   name: "SliderProducts",
+  props: ['title', 'products'],
   components: {
     Swiper,
     SwiperSlide,
   },
-  setup() {
-    const store = useStore();
-
-    return{
-      products: computed(() => store.getters.products)
-    }
-  }
 }
 </script>
 
@@ -68,8 +59,10 @@ export default {
   }
   .product-item__img{
     display: block;
+    max-width: 330px;
     width: 100%;
-    height: auto;
+    max-height: 480px;
+    height: 100%;
     object-fit: contain;
   }
   .product-item__body{

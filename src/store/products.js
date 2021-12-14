@@ -10,7 +10,9 @@ export default {
                 colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
                 sizes: ['XL', 'L', 'S'],
                 specifications: '62% акрил, 86% полиэстер, 33% шерсть, 4% эластан',
-                price:3000
+                price:3000,
+                hit: true,
+                type: 'w'
             },
             {
                 id: 1,
@@ -21,7 +23,9 @@ export default {
                 colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
                 sizes: ['M', 'L', 'S', 'XL'],
                 specifications: '38% акрил, 24% полиэстер, 15% шерсть, 14% эластан',
-                price:1000
+                price:1000,
+                hit: false,
+                type: 'w'
             },
             {
                 id: 6,
@@ -32,7 +36,9 @@ export default {
                 colors:[{id: 5, color: '#000'}, {id:6, color: '#ff0000'}],
                 sizes: ['M', 'L', 'S'],
                 specifications: '36% акрил, 2% полиэстер, 79% шерсть, 4% эластан',
-                price:6000
+                price:6000,
+                hit: true,
+                type: 'w'
             },
             {
                 id: 4,
@@ -43,7 +49,9 @@ export default {
                 colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
                 sizes: ['L', 'XL'],
                 specifications: '13% акрил, 24% полиэстер, 45% шерсть, 16% эластан',
-                price:4000
+                price:4000,
+                hit: false,
+                type: 'w'
             },
             {
                 id: 2,
@@ -54,7 +62,9 @@ export default {
                 colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
                 sizes: ['M', 'S'],
                 specifications: '60% акрил, 24% полиэстер, 65% шерсть, 56% эластан',
-                price:2000
+                price:2000,
+                hit: true,
+                type: 'w'
             },
             {
                 id: 5,
@@ -65,9 +75,90 @@ export default {
                 colors:[{id: 5, color: '#000'}, {id:6, color: '#ff0000'}],
                 sizes: ['X', 'XL', 'XXL'],
                 specifications: '32% акрил, 29% полиэстер, 54% шерсть, 4% эластан',
-                price:5000
+                price:5000,
+                hit: false,
+                type: 'w'
             },
 
+
+            {
+                id: 38,
+                article: 101335,
+                name: 'Пуховик с капюшоном',
+                img:'https://cdn.finnflare.com/upload/resize_cache/full_size/FWB/200/420_610_2/FWB61028_200_20.jpg?cdn=1638454832',
+                imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/FWB/200/420_610_2/FWB61028_200_20.jpg?cdn=1638454832', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FWB/200/420_610_2/FWB61028_200_20.jpg?cdn=1638454832', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FWB/200/420_610_2/FWB61028_200_20.jpg?cdn=1638454832'],
+                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                sizes: ['XL', 'L', 'S'],
+                specifications: '62% акрил, 86% полиэстер, 33% шерсть, 4% эластан',
+                price:9000,
+                hit: true,
+                type: 'm'
+            },
+            {
+                id: 17,
+                article: 132561,
+                name: 'Утепленный мужской жилет с капюшоном',
+                img:'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/101/420_610_2/FAB210101_101_20.jpg?cdn=1635862084',
+                imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/101/420_610_2/FAB210101_101_20.jpg?cdn=1635862084', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/101/420_610_2/FAB210101_101_20.jpg?cdn=1635862084', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/101/420_610_2/FAB210101_101_20.jpg?cdn=1635862084'],
+                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                sizes: ['M', 'L', 'S', 'XL'],
+                specifications: '38% акрил, 24% полиэстер, 15% шерсть, 14% эластан',
+                price:10000,
+                hit: false,
+                type: 'm'
+            },
+            {
+                id: 66,
+                article: 442832,
+                name: 'Кожаная мужская куртка-косуха свободного кроя',
+                img:'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/200/420_610_2/FAB21803_200_20.jpg?cdn=1637757381',
+                imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/200/420_610_2/FAB21803_200_20.jpg?cdn=1637757381', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/200/420_610_2/FAB21803_200_20.jpg?cdn=1637757381', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/200/420_610_2/FAB21803_200_20.jpg?cdn=1637757381'],
+                colors:[{id: 5, color: '#000'}, {id:6, color: '#ff0000'}],
+                sizes: ['M', 'L', 'S'],
+                specifications: '36% акрил, 2% полиэстер, 79% шерсть, 4% эластан',
+                price:16000,
+                hit: true,
+                type: 'm'
+            },
+            {
+                id: 45,
+                article: 154123,
+                name: 'Куртка мужская',
+                img:'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/900/420_610_2/FAB21046_900_20.jpg?cdn=1632899522',
+                imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/900/420_610_2/FAB21046_900_20.jpg?cdn=1632899522', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/900/420_610_2/FAB21046_900_20.jpg?cdn=1632899522', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/900/420_610_2/FAB21046_900_20.jpg?cdn=1632899522'],
+                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                sizes: ['L', 'XL'],
+                specifications: '13% акрил, 24% полиэстер, 45% шерсть, 16% эластан',
+                price:14000,
+                hit: false,
+                type: 'm'
+            },
+            {
+                id: 23,
+                article: 17587,
+                name: 'Oversize мужская куртка из искусственного меха',
+                img:'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/146/420_610_2/FAB210103_146_20.jpg?cdn=1639036567',
+                imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/146/420_610_2/FAB210103_146_20.jpg?cdn=1639036567', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/146/420_610_2/FAB210103_146_20.jpg?cdn=1639036567', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/146/420_610_2/FAB210103_146_20.jpg?cdn=1639036567'],
+                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                sizes: ['M', 'S'],
+                specifications: '60% акрил, 24% полиэстер, 65% шерсть, 56% эластан',
+                price:12000,
+                hit: true,
+                type: 'm'
+            },
+            {
+                id: 51,
+                article: 136126,
+                name: 'Жилет мужской',
+                img:'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/608/420_610_2/FAB21009_608_20.jpg?cdn=1635862074',
+                imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/608/420_610_2/FAB21009_608_20.jpg?cdn=1635862074', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/608/420_610_2/FAB21009_608_20.jpg?cdn=1635862074', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/608/420_610_2/FAB21009_608_20.jpg?cdn=1635862074'],
+                colors:[{id: 5, color: '#000'}, {id:6, color: '#ff0000'}],
+                sizes: ['X', 'XL', 'XXL'],
+                specifications: '32% акрил, 29% полиэстер, 54% шерсть, 4% эластан',
+                price:15000,
+                hit: false,
+                type: 'm'
+            },
         ],
         mainSlider: [
             {
@@ -93,7 +184,8 @@ export default {
         filterMin: null,
         filterMax: null,
         sorting: '',
-        totalFilter:[]
+        totalFilter:[],
+        hits:[]
     },
     mutations: {
         totalCount(state, payload) {
@@ -194,13 +286,28 @@ export default {
             const color = [];
             const price = [];
             const size = [];
+            const hits = [];
+            const man = [];
+            const woman = [];
             state.products.map(item => {
                 item.colors.forEach(el => {
                     color.push(el.color);
                 });
+
                 item.sizes.forEach(el => {
                     size.push(el)
                 })
+
+                if (item.hit) {
+                    hits.push(item)
+                }
+
+                if (item.type === 'm') {
+                    man.push(item)
+                } else {
+                    woman.push(item)
+                }
+
                 price.push(item.price);
             });
 
@@ -210,6 +317,9 @@ export default {
             state.props['color'] = [...new Set(color)];
             state.props['price'] = [min, max];
             state.props['size'] = [...new Set(size)];
+            state.props['hits'] = [...new Set(hits)];
+            state.props['m'] = [...new Set(man)];
+            state.props['w'] = [...new Set(woman)];
         },
         filterSearch(state, payload) {
             const arr = [];
@@ -252,24 +362,20 @@ export default {
                     state.totalFilter.sort(function (a, b) {
                         return a.price - b.price;
                     });
-                    state.totalFilter = state.products;
                 } else if (payload == 'priceDown'){
                     state.totalFilter.sort(function (a, b) {
                         return b.price - a.price;
                     });
-                    state.totalFilter = state.products;
                 }
             } else {
                 if (payload == 'priceUp') {
                     state.products.sort(function (a, b) {
                         return a.price - b.price;
                     });
-                    state.totalFilter = state.products;
                 } else if (payload == 'priceDown'){
                     state.products.sort(function (a, b) {
                         return b.price - a.price;
                     });
-                    state.totalFilter = state.products;
                 }
             }
         },
@@ -311,25 +417,34 @@ export default {
             if (color.length > 0 && size.length > 0 && price.length > 0) {
                 const prop = color.filter(item => size.indexOf(item) !== -1);
                 result = prop.filter(item => price.indexOf(item) !== -1);
-                return state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
+                state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
             }else if (color.length > 0 && size.length > 0) {
                 result = color.filter(item => size.indexOf(item) !== -1);
-                return state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
+                state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
             } else if (color.length > 0 && price.length > 0) {
                 result = color.filter(item => price.indexOf(item) !== -1);
-                return state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
+                state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
             } else if (size.length > 0 && price.length > 0) {
                 result = size.filter(item => price.indexOf(item) !== -1);
-                return state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
+                state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
             } else if (color.length > 0) {
-                return state.totalFilter = color;
+                state.totalFilter = color;
             } else if (size.length > 0) {
-                return state.totalFilter = size;
+                state.totalFilter = size;
             } else if (price.length > 0) {
-                return state.totalFilter = price;
+                state.totalFilter = price;
             } else {
-                return state.totalFilter = state.products;
+                state.totalFilter = state.products;
             }
+
+            const filter = {
+                filterColor: state.filterColor,
+                filterSize: state.filterSize,
+                filterMin: state.filterMin,
+                filterMax: state.filterMax,
+                totalFilter: state.totalFilter
+            }
+            localStorage.setItem('myCatalogFilter', JSON.stringify(filter))
         },
         filterClear(state, payload){
             state.totalFilter = payload
@@ -414,6 +529,13 @@ export default {
         filterSearch: state => state.filterColor,
         filterResult: state => state.totalFilter.length > 0 ? state.totalFilter : state.products,
         sorting: state => state.sorting,
+        filterMin: state => state.filterMin,
+        filterMax: state => state.filterMax,
+        filterColor: state => state.filterColor,
+        filterSize: state => state.filterSize,
+        hits: state => state.props.hits,
+        sliderMan: state => state.props.m,
+        sliderWoman: state => state.props.w,
         localStore(state) {
             if (localStorage.getItem('myProduct')) {
                 state.totalCount = JSON.parse(localStorage.getItem('myProduct')).count;
@@ -421,9 +543,16 @@ export default {
                 state.store.card = JSON.parse(localStorage.getItem('myProduct')).card;
                 state.arrToBuy = JSON.parse(localStorage.getItem('myProduct')).card;
             }
-            /*if (localStorage.getItem('myCatalogSort')) {
-                state.sorting = JSON.parse(localStorage.getItem('myCatalogSort')).sorting;
-            }*/
+            if (localStorage.getItem('myCatalogSort')) {
+                state.sorting = JSON.parse(localStorage.getItem('myCatalogSort'));
+            }
+            if (localStorage.getItem('myCatalogFilter')) {
+                state.filterColor = JSON.parse(localStorage.getItem('myCatalogFilter')).filterColor;
+                state.filterSize = JSON.parse(localStorage.getItem('myCatalogFilter')).filterSize;
+                state.filterMin = JSON.parse(localStorage.getItem('myCatalogFilter')).filterMin;
+                state.filterMax = JSON.parse(localStorage.getItem('myCatalogFilter')).filterMax;
+                state.totalFilter = JSON.parse(localStorage.getItem('myCatalogFilter')).totalFilter;
+            }
         }
     }
 }

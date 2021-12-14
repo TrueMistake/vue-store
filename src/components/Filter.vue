@@ -56,30 +56,41 @@ export default {
     const inputMax = ref(null);
 
     onBeforeMount(() => {
+      store.getters.localStore;
       store.dispatch('property');
-      const property = store.getters.property;
-      min.value = property.price[0];
-      max.value = property.price[1];
-      inputMin.value = property.price[0];
-      inputMax.value = property.price[1];
+      const {minF, maxF} = store.getters.property;
+      min.value = minF;
+      max.value = maxF;
+      inputMin.value = store.getters.filterMin || minF;
+      inputMax.value = store.getters.filterMax || maxF;
+      colors.value = store.getters.filterColor || [];
+      sizes.value = store.getters.filterSize || [];
     })
 
     const changeMin = () => {
-      if (min.value < inputMin.value) {
-        return inputMin.value = +min.value
+      if (min.value > inputMin.value) {
+        store.dispatch('filterMin', +min.value);
+        inputMin.value = +min.value
       }
+      if (inputMin.value == null) {
+        store.dispatch('filterMin', +min.value);
+      }
+      store.dispatch('filterMin', +inputMin.value);
     }
     const changeMax = () => {
       if (max.value < inputMax.value) {
-        return inputMax.value = +max.value
+        store.dispatch('filterMax', +max.value);
+        inputMax.value = +max.value
       }
+      if (inputMax.value == null) {
+        store.dispatch('filterMax', +max.value);
+      }
+      store.dispatch('filterMax', +inputMax.value);
     }
 
     const filterSuccess = () => {
       store.dispatch('filterSearch', colors.value);
       store.dispatch('filterSearchSize', sizes.value);
-      store.dispatch('filterMin', min);
-      store.dispatch('filterMax', max);
       store.dispatch('filterResult');
     }
 

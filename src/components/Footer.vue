@@ -5,7 +5,7 @@
         <div class="footer-left">
           <div class="footer-logo">
             <router-link tag="a" to="/" exact class="footer-logo__link">
-              <img src="https://i.pinimg.com/originals/30/cb/31/30cb311ba48206cdb09f0a1fe7a3be79.jpg" alt="" class="footer-logo__img">
+              <img src="https://i.pinimg.com/originals/30/cb/31/30cb311ba48206cdb09f0a1fe7a3be79.jpg" alt="logo" title="logo" class="footer-logo__img">
             </router-link>
           </div>
         </div>
@@ -46,7 +46,7 @@ export default {
   .footer-logo__img{
     display: block;
     width: 70px;
-    height: auto;
+    height: 50px;
     object-fit: contain;
   }
   
