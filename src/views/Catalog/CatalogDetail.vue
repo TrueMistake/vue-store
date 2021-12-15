@@ -64,7 +64,7 @@
               <div class="detail-right__colors">
                 <label class="detail-right__color" v-for="(el, colorKey) in product.colors" :key="colorKey" @click="changeColor(el.id)" :class="[product.id === el.id ? 'active' : '']">
                   <input type="radio" name="colors" v-model="colors[colorKey]" :value="el.id">
-                  <span :style="{backgroundColor: el.color}"></span>
+                  <span :style="{backgroundColor: `#${el.color}`}"></span>
                 </label>
               </div>
               <div class="detail-right__sizes">

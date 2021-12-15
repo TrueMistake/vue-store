@@ -4,7 +4,7 @@
     <div class="product-item__body">
       <div class="product-item__title">{{item.name}}</div>
       <div class="product-item__colors">
-        <div class="product-item__color" v-for="el of item.colors" :key="el.id" :style="{background: el.color}"></div>
+        <div class="product-item__color" v-for="el of item.colors" :key="el.id" :style="{background: `#${el.color}`}"></div>
       </div>
       <div class="product-item__sizes">
         <div class="product-item__size" v-for="el of item.sizes" :key="el.id">{{el}}</div>

@@ -21,7 +21,7 @@
         <div class="filter-item__wrap">
           <label class="filter-item__label" v-for="(item, key) of filterProps.color" :key="key">
             <input type="checkbox" class="filter-item__input" :value="item" v-model="colors">
-            <span class="filter-item__span" :style="{backgroundColor: item}"></span>
+            <span class="filter-item__span" :style="{backgroundColor: `#${item}`}"></span>
           </label>
         </div>
       </div>
@@ -58,11 +58,13 @@ export default {
     onBeforeMount(() => {
       store.getters.localStore;
       store.dispatch('property');
-      const {minF, maxF} = store.getters.property;
-      min.value = minF;
-      max.value = maxF;
-      inputMin.value = store.getters.filterMin || minF;
-      inputMax.value = store.getters.filterMax || maxF;
+      store.dispatch('filterResult');
+
+      const props = store.getters.property;
+      min.value = props.price[0];
+      max.value = props.price[1];
+      inputMin.value = store.getters.filterMin || props.price[0];
+      inputMax.value = store.getters.filterMax || props.price[1];
       colors.value = store.getters.filterColor || [];
       sizes.value = store.getters.filterSize || [];
     })
@@ -72,15 +74,22 @@ export default {
         store.dispatch('filterMin', +min.value);
         inputMin.value = +min.value
       }
+      if (inputMin.value > inputMax.value || inputMin.value > +max.value) {
+        inputMin.value = inputMax.value - 1
+      }
       if (inputMin.value == null) {
         store.dispatch('filterMin', +min.value);
       }
       store.dispatch('filterMin', +inputMin.value);
     }
+
     const changeMax = () => {
       if (max.value < inputMax.value) {
         store.dispatch('filterMax', +max.value);
         inputMax.value = +max.value
+      }
+      if (inputMax.value < inputMin.value || inputMax.value < +min.value) {
+        inputMax.value = inputMin.value + 1
       }
       if (inputMax.value == null) {
         store.dispatch('filterMax', +max.value);
@@ -92,10 +101,16 @@ export default {
       store.dispatch('filterSearch', colors.value);
       store.dispatch('filterSearchSize', sizes.value);
       store.dispatch('filterResult');
+
+      let baseUrl = window.location.href;
+      const url = new URL(`?min=${inputMin.value}&max=${inputMax.value}&colors=${colors.value}&sizes=${sizes.value}`, baseUrl)
+      window.history.pushState(null, null, url)
     }
 
     const filterClear = () => {
       store.dispatch('filterClear', []);
+      colors.value = [];
+      sizes.value = [];
     }
 
 

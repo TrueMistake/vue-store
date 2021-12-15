@@ -7,7 +7,7 @@ export default {
                 name: 'Женская кофта 3',
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/300/454_700_2/BAS-10105_300_20.jpg?cdn=1627901282'],
-                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                colors:[{id: 1, color: '000'}, {id:2, color: 'fff'}, {id:3, color: 'ff0000'}, {id:4, color:'808080'}],
                 sizes: ['XL', 'L', 'S'],
                 specifications: '62% акрил, 86% полиэстер, 33% шерсть, 4% эластан',
                 price:3000,
@@ -20,7 +20,7 @@ export default {
                 name: 'Женская кофта 1',
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/101/454_700_2/BAS-10104_101_20.jpg?cdn=1627393262',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/101/454_700_2/BAS-10104_101_20.jpg?cdn=1627393262', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/101/454_700_2/BAS-10104_101_20.jpg?cdn=1627393262', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/101/454_700_2/BAS-10104_101_20.jpg?cdn=1627393262'],
-                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                colors:[{id: 1, color: '000'}, {id:2, color: 'fff'}, {id:3, color: 'ff0000'}, {id:4, color:'808080'}],
                 sizes: ['M', 'L', 'S', 'XL'],
                 specifications: '38% акрил, 24% полиэстер, 15% шерсть, 14% эластан',
                 price:1000,
@@ -33,7 +33,7 @@ export default {
                 name: 'Женская кофта 6',
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/409/454_700_2/BAS-10106_409_20.jpg?cdn=1627369501'],
-                colors:[{id: 5, color: '#000'}, {id:6, color: '#ff0000'}],
+                colors:[{id: 5, color: '000'}, {id:6, color: 'ff0000'}],
                 sizes: ['M', 'L', 'S'],
                 specifications: '36% акрил, 2% полиэстер, 79% шерсть, 4% эластан',
                 price:6000,
@@ -46,7 +46,7 @@ export default {
                 name: 'Женская кофта 4',
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/211/454_700_2/BAS-10105_211_20.jpg?cdn=1627393262',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/211/454_700_2/BAS-10105_211_20.jpg?cdn=1627393262', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/211/454_700_2/BAS-10105_211_20.jpg?cdn=1627393262', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/211/454_700_2/BAS-10105_211_20.jpg?cdn=1627393262'],
-                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                colors:[{id: 1, color: '000'}, {id:2, color: 'fff'}, {id:3, color: 'ff0000'}, {id:4, color:'808080'}],
                 sizes: ['L', 'XL'],
                 specifications: '13% акрил, 24% полиэстер, 45% шерсть, 16% эластан',
                 price:4000,
@@ -59,7 +59,7 @@ export default {
                 name: 'Женская кофта 2',
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/209/454_700_2/BAS-10104_209_20.jpg?cdn=1630044436'],
-                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                colors:[{id: 1, color: '000'}, {id:2, color: 'fff'}, {id:3, color: 'ff0000'}, {id:4, color:'808080'}],
                 sizes: ['M', 'S'],
                 specifications: '60% акрил, 24% полиэстер, 65% шерсть, 56% эластан',
                 price:2000,
@@ -72,7 +72,7 @@ export default {
                 name: 'Женская кофта 5',
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/814/454_700_2/BAS-10105_814_20.jpg?cdn=1627369501',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/814/454_700_2/BAS-10105_814_20.jpg?cdn=1627369501', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/814/454_700_2/BAS-10105_814_20.jpg?cdn=1627369501', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/814/454_700_2/BAS-10105_814_20.jpg?cdn=1627369501'],
-                colors:[{id: 5, color: '#000'}, {id:6, color: '#ff0000'}],
+                colors:[{id: 5, color: '000'}, {id:6, color: 'ff0000'}],
                 sizes: ['X', 'XL', 'XXL'],
                 specifications: '32% акрил, 29% полиэстер, 54% шерсть, 4% эластан',
                 price:5000,
@@ -87,7 +87,7 @@ export default {
                 name: 'Пуховик с капюшоном',
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/FWB/200/420_610_2/FWB61028_200_20.jpg?cdn=1638454832',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/FWB/200/420_610_2/FWB61028_200_20.jpg?cdn=1638454832', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FWB/200/420_610_2/FWB61028_200_20.jpg?cdn=1638454832', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FWB/200/420_610_2/FWB61028_200_20.jpg?cdn=1638454832'],
-                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                colors:[{id: 1, color: '000'}, {id:2, color: 'fff'}, {id:3, color: 'ff0000'}, {id:4, color:'808080'}],
                 sizes: ['XL', 'L', 'S'],
                 specifications: '62% акрил, 86% полиэстер, 33% шерсть, 4% эластан',
                 price:9000,
@@ -100,7 +100,7 @@ export default {
                 name: 'Утепленный мужской жилет с капюшоном',
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/101/420_610_2/FAB210101_101_20.jpg?cdn=1635862084',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/101/420_610_2/FAB210101_101_20.jpg?cdn=1635862084', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/101/420_610_2/FAB210101_101_20.jpg?cdn=1635862084', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/101/420_610_2/FAB210101_101_20.jpg?cdn=1635862084'],
-                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                colors:[{id: 1, color: '000'}, {id:2, color: 'fff'}, {id:3, color: 'ff0000'}, {id:4, color:'808080'}],
                 sizes: ['M', 'L', 'S', 'XL'],
                 specifications: '38% акрил, 24% полиэстер, 15% шерсть, 14% эластан',
                 price:10000,
@@ -113,7 +113,7 @@ export default {
                 name: 'Кожаная мужская куртка-косуха свободного кроя',
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/200/420_610_2/FAB21803_200_20.jpg?cdn=1637757381',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/200/420_610_2/FAB21803_200_20.jpg?cdn=1637757381', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/200/420_610_2/FAB21803_200_20.jpg?cdn=1637757381', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/200/420_610_2/FAB21803_200_20.jpg?cdn=1637757381'],
-                colors:[{id: 5, color: '#000'}, {id:6, color: '#ff0000'}],
+                colors:[{id: 5, color: '000'}, {id:6, color: 'ff0000'}],
                 sizes: ['M', 'L', 'S'],
                 specifications: '36% акрил, 2% полиэстер, 79% шерсть, 4% эластан',
                 price:16000,
@@ -126,7 +126,7 @@ export default {
                 name: 'Куртка мужская',
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/900/420_610_2/FAB21046_900_20.jpg?cdn=1632899522',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/900/420_610_2/FAB21046_900_20.jpg?cdn=1632899522', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/900/420_610_2/FAB21046_900_20.jpg?cdn=1632899522', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/900/420_610_2/FAB21046_900_20.jpg?cdn=1632899522'],
-                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                colors:[{id: 1, color: '000'}, {id:2, color: 'fff'}, {id:3, color: 'ff0000'}, {id:4, color:'808080'}],
                 sizes: ['L', 'XL'],
                 specifications: '13% акрил, 24% полиэстер, 45% шерсть, 16% эластан',
                 price:14000,
@@ -139,7 +139,7 @@ export default {
                 name: 'Oversize мужская куртка из искусственного меха',
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/146/420_610_2/FAB210103_146_20.jpg?cdn=1639036567',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/146/420_610_2/FAB210103_146_20.jpg?cdn=1639036567', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/146/420_610_2/FAB210103_146_20.jpg?cdn=1639036567', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/146/420_610_2/FAB210103_146_20.jpg?cdn=1639036567'],
-                colors:[{id: 1, color: '#000'}, {id:2, color: '#fff'}, {id:3, color: '#ff0000'}, {id:4, color:'#808080'}],
+                colors:[{id: 1, color: '000'}, {id:2, color: 'fff'}, {id:3, color: 'ff0000'}, {id:4, color:'808080'}],
                 sizes: ['M', 'S'],
                 specifications: '60% акрил, 24% полиэстер, 65% шерсть, 56% эластан',
                 price:12000,
@@ -152,7 +152,7 @@ export default {
                 name: 'Жилет мужской',
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/608/420_610_2/FAB21009_608_20.jpg?cdn=1635862074',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/608/420_610_2/FAB21009_608_20.jpg?cdn=1635862074', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/608/420_610_2/FAB21009_608_20.jpg?cdn=1635862074', 'https://cdn.finnflare.com/upload/resize_cache/full_size/FAB/608/420_610_2/FAB21009_608_20.jpg?cdn=1635862074'],
-                colors:[{id: 5, color: '#000'}, {id:6, color: '#ff0000'}],
+                colors:[{id: 5, color: '000'}, {id:6, color: 'ff0000'}],
                 sizes: ['X', 'XL', 'XXL'],
                 specifications: '32% акрил, 29% полиэстер, 54% шерсть, 4% эластан',
                 price:15000,
@@ -312,10 +312,13 @@ export default {
             });
 
             const min = price.sort().shift();
-            const max = price.sort().pop();
+            const max = price.sort(function (a, b) {
+                return b - a;
+            });
+
 
             state.props['color'] = [...new Set(color)];
-            state.props['price'] = [min, max];
+            state.props['price'] = [min, max[0]];
             state.props['size'] = [...new Set(size)];
             state.props['hits'] = [...new Set(hits)];
             state.props['m'] = [...new Set(man)];
@@ -436,18 +439,21 @@ export default {
             } else {
                 state.totalFilter = state.products;
             }
-
-            const filter = {
-                filterColor: state.filterColor,
-                filterSize: state.filterSize,
-                filterMin: state.filterMin,
-                filterMax: state.filterMax,
-                totalFilter: state.totalFilter
-            }
-            localStorage.setItem('myCatalogFilter', JSON.stringify(filter))
         },
         filterClear(state, payload){
-            state.totalFilter = payload
+            state.totalFilter = payload;
+            const parsedUrl = new URL(window.location.href)
+            if (parsedUrl.searchParams.get('min')){
+                parsedUrl.searchParams.delete('min')
+                parsedUrl.searchParams.delete('max')
+                parsedUrl.searchParams.delete('colors')
+                parsedUrl.searchParams.delete('sizes')
+                state.filterColor = null;
+                state.filterSize = null;
+                state.filterMin = null;
+                state.filterMax = null;
+                window.history.pushState(null, null, parsedUrl)
+            }
         }
     },
     actions: {
@@ -511,7 +517,7 @@ export default {
             state.commit('filterResult')
         },
         filterClear(state, payload) {
-            state.commit('filterClear', payload)
+            state.commit('filterClear', payload);
         }
     },
     getters: {
@@ -546,12 +552,12 @@ export default {
             if (localStorage.getItem('myCatalogSort')) {
                 state.sorting = JSON.parse(localStorage.getItem('myCatalogSort'));
             }
-            if (localStorage.getItem('myCatalogFilter')) {
-                state.filterColor = JSON.parse(localStorage.getItem('myCatalogFilter')).filterColor;
-                state.filterSize = JSON.parse(localStorage.getItem('myCatalogFilter')).filterSize;
-                state.filterMin = JSON.parse(localStorage.getItem('myCatalogFilter')).filterMin;
-                state.filterMax = JSON.parse(localStorage.getItem('myCatalogFilter')).filterMax;
-                state.totalFilter = JSON.parse(localStorage.getItem('myCatalogFilter')).totalFilter;
+            const parsedUrl = new URL(window.location.href)
+            if (parsedUrl.searchParams.get('min')) {
+                state.filterColor = parsedUrl.searchParams.get('colors').length ? parsedUrl.searchParams.get('colors').split(',') : '';
+                state.filterSize = parsedUrl.searchParams.get('sizes').length ? parsedUrl.searchParams.get('sizes').split(',') : '';
+                state.filterMin = +parsedUrl.searchParams.get('min');
+                state.filterMax = +parsedUrl.searchParams.get('max');
             }
         }
     }
