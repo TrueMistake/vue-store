@@ -32,7 +32,6 @@ export default {
 
     onBeforeMount(() => {
       store.dispatch('property');
-      console.log('store.getters.sliderMan',store.getters.sliderMan)
     })
 
     return{

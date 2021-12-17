@@ -28,10 +28,11 @@ export default {
 
 <style scoped>
   .header-basket{
-    text-align: right;
+    text-align: center;
+    position: relative;
   }
   .header-basket__link{
-    position: relative;
+
   }
   .header-basket__svg{
 

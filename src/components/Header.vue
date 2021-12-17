@@ -11,6 +11,7 @@
         <div class="header-contacts">
           <a href="#" class="header-contacts__phone">+7 800 123-65-47</a>
         </div>
+        <app-favorite></app-favorite>
         <app-basket :totalCount="totalCount"></app-basket>
       </div>
       <app-nav></app-nav>
@@ -23,6 +24,7 @@
 import appSearch from './Search';
 import appNav from './Nav'
 import appBasket from '../components/BasketHeader'
+import appFavorite from '../components/Favorite'
 import { onBeforeMount, computed } from 'vue'
 import { useStore } from 'vuex'
 
@@ -42,7 +44,8 @@ export default {
   components: {
     'app-search': appSearch,
     'app-nav': appNav,
-    'app-basket': appBasket
+    'app-basket': appBasket,
+    'app-favorite': appFavorite
   }
 }
 </script>
@@ -53,7 +56,7 @@ export default {
   }
   .header-wrap{
     display: grid;
-    grid-template-columns: 100px 1fr 200px 100px;
+    grid-template-columns: 100px 1fr 200px 40px 40px;
     grid-column-gap: 20px;
     align-items: center;
   }

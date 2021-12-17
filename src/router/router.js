@@ -6,6 +6,7 @@ import Contacts from "../views/Contacts";
 import About from "../views/About";
 import Basket from "../views/Basket";
 import Order from "../views/Order";
+import Favorites from "../views/Favorites";
 
 
 const routes = [
@@ -45,6 +46,12 @@ const routes = [
         path: '/order',
         name: 'Order',
         component: Order
+    },
+    {
+        path: '/favorites',
+        name: 'Favorites',
+        component: Favorites,
+        props: true
     },
 
 ];

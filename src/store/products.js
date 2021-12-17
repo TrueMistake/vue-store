@@ -12,7 +12,8 @@ export default {
                 specifications: '62% акрил, 86% полиэстер, 33% шерсть, 4% эластан',
                 price:3000,
                 hit: true,
-                type: 'w'
+                type: 'w',
+                favorite: false
             },
             {
                 id: 1,
@@ -25,7 +26,8 @@ export default {
                 specifications: '38% акрил, 24% полиэстер, 15% шерсть, 14% эластан',
                 price:1000,
                 hit: false,
-                type: 'w'
+                type: 'w',
+                favorite: false
             },
             {
                 id: 6,
@@ -38,7 +40,8 @@ export default {
                 specifications: '36% акрил, 2% полиэстер, 79% шерсть, 4% эластан',
                 price:6000,
                 hit: true,
-                type: 'w'
+                type: 'w',
+                favorite: false
             },
             {
                 id: 4,
@@ -51,7 +54,8 @@ export default {
                 specifications: '13% акрил, 24% полиэстер, 45% шерсть, 16% эластан',
                 price:4000,
                 hit: false,
-                type: 'w'
+                type: 'w',
+                favorite: false
             },
             {
                 id: 2,
@@ -64,7 +68,8 @@ export default {
                 specifications: '60% акрил, 24% полиэстер, 65% шерсть, 56% эластан',
                 price:2000,
                 hit: true,
-                type: 'w'
+                type: 'w',
+                favorite: false
             },
             {
                 id: 5,
@@ -77,7 +82,8 @@ export default {
                 specifications: '32% акрил, 29% полиэстер, 54% шерсть, 4% эластан',
                 price:5000,
                 hit: false,
-                type: 'w'
+                type: 'w',
+                favorite: false
             },
 
 
@@ -92,7 +98,8 @@ export default {
                 specifications: '62% акрил, 86% полиэстер, 33% шерсть, 4% эластан',
                 price:9000,
                 hit: true,
-                type: 'm'
+                type: 'm',
+                favorite: false
             },
             {
                 id: 17,
@@ -105,7 +112,8 @@ export default {
                 specifications: '38% акрил, 24% полиэстер, 15% шерсть, 14% эластан',
                 price:10000,
                 hit: false,
-                type: 'm'
+                type: 'm',
+                favorite: false
             },
             {
                 id: 66,
@@ -118,7 +126,8 @@ export default {
                 specifications: '36% акрил, 2% полиэстер, 79% шерсть, 4% эластан',
                 price:16000,
                 hit: true,
-                type: 'm'
+                type: 'm',
+                favorite: false
             },
             {
                 id: 45,
@@ -131,7 +140,8 @@ export default {
                 specifications: '13% акрил, 24% полиэстер, 45% шерсть, 16% эластан',
                 price:14000,
                 hit: false,
-                type: 'm'
+                type: 'm',
+                favorite: false
             },
             {
                 id: 23,
@@ -144,7 +154,8 @@ export default {
                 specifications: '60% акрил, 24% полиэстер, 65% шерсть, 56% эластан',
                 price:12000,
                 hit: true,
-                type: 'm'
+                type: 'm',
+                favorite: false
             },
             {
                 id: 51,
@@ -157,7 +168,8 @@ export default {
                 specifications: '32% акрил, 29% полиэстер, 54% шерсть, 4% эластан',
                 price:15000,
                 hit: false,
-                type: 'm'
+                type: 'm',
+                favorite: false
             },
         ],
         mainSlider: [
@@ -185,7 +197,8 @@ export default {
         filterMax: null,
         sorting: '',
         totalFilter:[],
-        hits:[]
+        hits:[],
+        favorites: []
     },
     mutations: {
         totalCount(state, payload) {
@@ -454,6 +467,9 @@ export default {
                 state.filterMax = null;
                 window.history.pushState(null, null, parsedUrl)
             }
+        },
+        addFavorite(state, payload){
+            state.favorites = payload.type
         }
     },
     actions: {
@@ -518,6 +534,9 @@ export default {
         },
         filterClear(state, payload) {
             state.commit('filterClear', payload);
+        },
+        addFavorite(state, payload){
+            state.commit('addFavorite', payload)
         }
     },
     getters: {
@@ -542,6 +561,7 @@ export default {
         hits: state => state.props.hits,
         sliderMan: state => state.props.m,
         sliderWoman: state => state.props.w,
+        addFavorite: state => state.favorites,
         localStore(state) {
             if (localStorage.getItem('myProduct')) {
                 state.totalCount = JSON.parse(localStorage.getItem('myProduct')).count;

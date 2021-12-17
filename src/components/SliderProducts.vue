@@ -4,6 +4,14 @@
     <swiper :slidesPerView="4" :spaceBetween="30" :pagination='{"clickable": true}' class="mySwiper slider-product">
       <swiper-slide v-for="item of products" :key="item.id">
         <router-link :to="'/catalog/' + item.id" tag="a" class="product-item">
+          <div class="product-item__favorite">
+            <svg v-if="item.favorite === false" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.1016 5.53504C17.0625 3.81238 13.9336 4.05848 12 6.06238C10.0313 4.05848 6.90237 3.81238 4.86331 5.53504C2.22659 7.74988 2.61331 11.371 4.51174 13.3046L10.6641 19.5975C11.0157 19.9491 11.4727 20.16 12 20.16C12.4922 20.16 12.9492 19.9491 13.3008 19.5975L19.4883 13.3046C21.3516 11.371 21.7383 7.74988 19.1016 5.53504ZM18.2578 12.1093L12.1055 18.4022C12.0352 18.4725 11.9649 18.4725 11.8594 18.4022L5.70706 12.1093C4.40628 10.8085 4.16018 8.34754 5.95315 6.83582C7.32424 5.67566 9.43362 5.85145 10.7696 7.18738L12 8.45301L13.2305 7.18738C14.5313 5.85145 16.6407 5.67566 18.0117 6.80066C19.8047 8.34754 19.5586 10.8085 18.2578 12.1093Z" fill="#353642"/>
+            </svg>
+            <svg v-else width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.2422 5.46479C17.3086 3.81244 14.461 4.12885 12.668 5.95698L12 6.6601L11.2969 5.95698C9.53911 4.12885 6.65629 3.81244 4.7227 5.46479C2.50786 7.36323 2.40239 10.7382 4.37114 12.7773L11.1914 19.8085C11.6133 20.2656 12.3516 20.2656 12.7735 19.8085L19.5938 12.7773C21.5625 10.7382 21.4571 7.36323 19.2422 5.46479Z" fill="#353642"/>
+            </svg>
+          </div>
           <img :src="item.img" alt="" class="product-item__img">
           <div class="product-item__body">
             <div class="product-item__title">{{item.name}}</div>
