@@ -78,7 +78,7 @@ export default {
                 img:'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/814/454_700_2/BAS-10105_814_20.jpg?cdn=1627369501',
                 imgOther: ['https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/814/454_700_2/BAS-10105_814_20.jpg?cdn=1627369501', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/814/454_700_2/BAS-10105_814_20.jpg?cdn=1627369501', 'https://cdn.finnflare.com/upload/resize_cache/full_size/BAS/814/454_700_2/BAS-10105_814_20.jpg?cdn=1627369501'],
                 colors:[{id: 5, color: '000'}, {id:6, color: 'ff0000'}],
-                sizes: ['X', 'XL', 'XXL'],
+                sizes: ['X'],
                 specifications: '32% акрил, 29% полиэстер, 54% шерсть, 4% эластан',
                 price:5000,
                 hit: false,
@@ -172,6 +172,20 @@ export default {
                 favorite: false
             },
         ],
+        /*sizes: [
+            {
+                id: 1,
+                value: 'X'
+            },
+            {
+                id: 2,
+                value: 'XL'
+            },
+            {
+                id: 3,
+                value: 'XXL'
+            }
+        ],*/
         mainSlider: [
             {
                 link: '',
@@ -469,7 +483,16 @@ export default {
             }
         },
         addFavorite(state, payload){
-            state.favorites = payload.type
+            if (state.favorites.length > 0 &&
+                state.favorites.indexOf(payload) !== -1) {
+                for (let i = 0; i <= state.favorites.length; i++) {
+                    if (state.favorites[i] === payload) {
+                        state.favorites.splice(i, 1);
+                    }
+                }
+            } else {
+                state.favorites.push(payload);
+            }
         }
     },
     actions: {

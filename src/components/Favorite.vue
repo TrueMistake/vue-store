@@ -16,7 +16,7 @@ export default {
   setup () {
     const store = useStore();
     return{
-      favorites: computed(() => store.getters.products.filter(item => item.favorite))
+      favorites: computed(() => store.getters.addFavorite)
     }
   }
 }

@@ -25,9 +25,11 @@ export default {
     const store = useStore();
 
     return{
-      favorites: computed(() => store.getters.addFavorite.filter(item => {
-        if (item.favorite === true) {
-          return item
+      favorites: computed(() => store.getters.products.filter((item) => {
+        for (let i = 0; i < store.getters.addFavorite.length; i++) {
+          if (item.id === store.getters.addFavorite[i]) {
+            return item
+          }
         }
       }))
     }
