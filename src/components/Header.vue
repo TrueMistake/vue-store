@@ -1,5 +1,6 @@
 <template>
   <header class="header">
+    <app-header-top></app-header-top>
     <div class="container">
       <div class="header-wrap">
         <div class="header-logo">
@@ -14,8 +15,9 @@
         <app-favorite></app-favorite>
         <app-basket :totalCount="totalCount"></app-basket>
       </div>
-      <app-nav></app-nav>
+
     </div>
+    <app-nav></app-nav>
   </header>
   <router-view></router-view>
 </template>
@@ -25,6 +27,7 @@ import appSearch from './Search';
 import appNav from './Nav'
 import appBasket from '../components/BasketHeader'
 import appFavorite from '../components/Favorite'
+import appHeaderTop from '../components/HeaderMenu'
 import { onBeforeMount, computed } from 'vue'
 import { useStore } from 'vuex'
 
@@ -45,20 +48,22 @@ export default {
     'app-search': appSearch,
     'app-nav': appNav,
     'app-basket': appBasket,
-    'app-favorite': appFavorite
+    'app-favorite': appFavorite,
+    'app-header-top': appHeaderTop
   }
 }
 </script>
 
 <style scoped>
   .header{
-    padding: 20px 0;
+    padding-bottom: 20px;
   }
   .header-wrap{
     display: grid;
     grid-template-columns: 100px 1fr 200px 40px 40px;
     grid-column-gap: 20px;
     align-items: center;
+    padding-top: 15px;
   }
   .header-logo__img{
     display: block;
@@ -70,6 +75,7 @@ export default {
     font-size: 16px;
     line-height: 20px;
     color: #000;
+    font-weight: bold;
   }
 
   .header-contacts{

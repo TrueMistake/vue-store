@@ -1,11 +1,16 @@
 <template>
   <div class="basket">
     <div class="container">
+      <div class="basket-back">
+        <router-link class="basket-back__link" to="/catalog">Назад</router-link>
+      </div>
       <h1>Мои товары ({{totalCount}})</h1>
       <div class="basket-wrap" v-if="arrToBuy.length">
         <div class="basket-list">
           <div class="basket-item" v-for="(item, key) in arrToBuy" :key="key">
-            <img :src="item.img" alt="" class="basket-item__img">
+            <router-link tag="a" :to="'/catalog/' + item.id" exact>
+              <img :src="item.img" alt="" class="basket-item__img">
+            </router-link>
             <div class="basket-item__name">{{item.name}}</div>
             <div class="basket-item__num">
               <div @click="addBasket(item, 1)" class="basket-item__num-plus">+</div>
@@ -25,7 +30,6 @@
             <div class="basket-link__order">Оформить</div>
           </router-link>
         </div>
-        <router-link class="basket-back" to="/catalog">Назад</router-link>
       </div>
       <div class="empty" v-else>
         <h1>Корзина пуста</h1>
@@ -86,6 +90,7 @@ export default {
     display: grid;
     grid-template-columns: 1fr 300px;
     grid-column-gap: 20px;
+    padding-bottom: 50px;
   }
   @media screen and (max-width: 767px){
     .basket-wrap{
@@ -95,6 +100,7 @@ export default {
   }
   h1{
     margin-bottom: 20px;
+    line-height: 36px;
   }
   .basket-list{
     width: 100%;
@@ -113,12 +119,13 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px 0 0;
-    box-shadow: 0 0 5px rgba(36,40,87, .2);
+    box-shadow: 0px 0px 0px 1px #dadada inset, 0px 0px 0px 5px transparent;
   }
   .basket-item__img{
     width: 52px;
     height: auto;
     object-fit: contain;
+    display: block;
   }
   .basket-item__name{
   }
@@ -132,9 +139,16 @@ export default {
     padding: 5px 0px;
     margin: 0 10px;
     text-align: center;
+    border: none;
   }
   .basket-item__num input{
     -moz-appearance:textfield;
+    box-shadow: 0px 0px 0px 1px #dadada inset, 0px 0px 0px 5px transparent;
+  }
+  .basket-item__num input:focus{
+    -moz-appearance:textfield;
+    box-shadow: 0px 0px 0px 1px #f8694a inset, 0px 0px 0px 0px #f8694a;
+    outline: none;
   }
   .basket-item__num input::-webkit-outer-spin-button{
     -webkit-appearance: none;
@@ -164,13 +178,17 @@ export default {
     height: 20px;
     position: relative;
     cursor: pointer;
+    box-shadow: 0px 0px 0px 1px #dadada inset, 0px 0px 0px 6px transparent;
+  }
+  .basket-item__remove:hover{
+    box-shadow: 0px 0px 0px 1px #f8694a inset, 0px 0px 0px 0px #f8694a;
   }
   .basket-item__remove::before{
     position: absolute;
     content: '';
-    top: 5px;
+    top: 9px;
     left: 0;
-    background: red;
+    background: #F8694A;
     width: 20px;
     height: 2px;
     transform: rotate(45deg);
@@ -178,15 +196,16 @@ export default {
   .basket-item__remove:after{
     position: absolute;
     content: '';
-    top: 5px;
+    top: 9px;
     left: 0;
-    background: red;
+    background: #F8694A;
     width: 20px;
     height: 2px;
     transform: rotate(-45deg);
   }
   .basket-item__total span{
     font-weight: bold;
+    color: #F8694A;
   }
   .basket-finish{
     padding: 20px;
@@ -215,9 +234,10 @@ export default {
     justify-content: space-between;
   }
   .basket-total span{
+    color: #F8694A;
   }
   .basket-clear{
-    border: 1px solid #dedede;
+    border: 1px solid #30323A;
     border-radius: 5px;
     padding: 10px 20px;
     font-weight: bold;
@@ -232,7 +252,7 @@ export default {
     content: '';
     left: 50%;
     top: 0;
-    background: #dedede;
+    background: #F8694A;
     width: 0%;
     height: 100%;
     z-index: -1;
@@ -240,6 +260,7 @@ export default {
   }
   .basket-clear:hover{
     color: #fff;
+    border: 1px solid #F8694A;
   }
   .basket-clear:hover:before{
     width: 100%;
@@ -255,9 +276,9 @@ export default {
     border-radius: 4px;
     padding: 10px 20px;
     text-decoration: none;
-    color: #242857;
+    color: #30323A;
     font-weight: bold;
-    border: 1px solid #242857;
+    border: 1px solid #30323A;
     position: relative;
     text-align: center;
     transition: background .3s linear;
@@ -267,7 +288,7 @@ export default {
     content: '';
     left: 50%;
     top: 0;
-    background: #242857;
+    background: #F8694A;
     width: 0%;
     height: 100%;
     z-index: -1;
@@ -275,6 +296,7 @@ export default {
   }
   .basket-link__order:hover{
     color: #fff;
+    border: 1px solid #F8694A;
   }
   .basket-link__order:hover:before{
     width: 100%;
@@ -288,31 +310,34 @@ export default {
     margin-bottom: 20px;
   }
   .basket-back{
-    border: 1px solid #242857;
+
+  }
+  .basket-back__link{
+    border: 1px solid #30323A;
     border-radius: 4px;
     padding: 10px 20px;
     text-decoration: none;
-    color: #242857;
+    color: #30323A;
     display: inline-block;
-    margin-top: 30px;
     position: relative;
     transition: background .3s linear;
   }
-  .basket-back:before{
+  .basket-back__link:before{
     position: absolute;
     content: '';
     left: 50%;
     top: 0;
-    background: #242857;
+    background: #F8694A;
     width: 0%;
     height: 100%;
     z-index: -1;
     transition: all .3s ease;
   }
-  .basket-back:hover{
+  .basket-back__link:hover{
     color: #fff;
+    border: 1px solid #F8694A;
   }
-  .basket-back:hover:before{
+  .basket-back__link:hover:before{
     width: 100%;
     left: 0;
   }

@@ -43,5 +43,13 @@ export default {
   }
   .sort-select{
     padding: 10px;
+    border: none;
+    box-shadow: 0px 0px 0px 1px #dadada inset, 0px 0px 0px 5px transparent;
+  }
+  @media screen and (max-width: 767px){
+    .sort-select{
+      width: 100%;
+      margin-top: 20px;
+    }
   }
 </style>

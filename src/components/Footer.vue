@@ -11,6 +11,9 @@
         </div>
         <ul class="footer-list">
           <li class="footer-item">
+            <router-link to="/" tag="a" exact class="nav-link">Главная</router-link>
+          </li>
+          <li class="footer-item">
             <router-link :to="{name: 'Catalog'}" tag="a" exact class="nav-link">Женщинам</router-link>
           </li>
           <li class="footer-item">
@@ -24,8 +27,18 @@
           </li>
         </ul>
         <div class="footer-contacts">
-          <a href="#" class="footer-contacts__phone">+7 800 123-65-47</a>
+          <div>
+            <a href="#" class="footer-contacts__phone">+7 800 123-65-47</a>
+          </div>
+          <div>
+            <a href="#" class="footer-contacts__email">shop@shop.com</a>
+          </div>
         </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        Copyright ©2021
       </div>
     </div>
   </footer>
@@ -38,20 +51,43 @@ export default {
 </script>
 
 <style scoped>
+  .footer{
+    padding-top: 30px;
+    background: #F6F7F8;
+  }
   .footer-wrap{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 15px;
   }
-  
+  @media screen and (max-width: 576px) {
+    .footer-wrap{
+      grid-template-columns: auto;
+      justify-content: center;
+      text-align: center;
+    }
+  }
   .footer-logo__img{
     display: block;
     width: 70px;
     height: 50px;
     object-fit: contain;
   }
-  
+  @media screen and (max-width: 576px) {
+    .footer-left{
+      margin-bottom: 15px;
+    }
+    .footer-logo__img{
+      margin: 0 auto;
+    }
+  }
   .footer-list{
 
+  }
+  @media screen and (max-width: 576px){
+    .footer-list{
+      margin-bottom: 15px;
+    }
   }
   .footer-item{
     margin-bottom: 10px;
@@ -67,5 +103,11 @@ export default {
     font-size: 16px;
     line-height: 18px;
     color: #000;
+    font-weight: bold;
+  }
+  .footer-bottom{
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
   }
 </style>

@@ -1,7 +1,33 @@
 <template>
   <div class="index-slider">
     <div class="index-slider__h2">{{title}}</div>
-    <swiper :slidesPerView="4" :spaceBetween="30" :pagination='{"clickable": true}' class="mySwiper slider-product">
+    <swiper
+        :slidesPerView="4"
+        :spaceBetween="30"
+        :pagination='{"clickable": true}'
+        :breakpoints='{
+          "0": {
+            "slidesPerView": 1,
+            "spaceBetween": 10
+          },
+          "380": {
+            "slidesPerView": 2,
+            "spaceBetween": 10
+          },
+          "640": {
+            "slidesPerView": 2,
+            "spaceBetween": 10
+          },
+          "768": {
+            "slidesPerView": 3,
+            "spaceBetween": 20
+          },
+          "1200": {
+            "slidesPerView": 4,
+            "spaceBetween": 30
+          }
+        }'
+        class="mySwiper slider-product">
       <swiper-slide v-for="item of products" :key="item.id">
         <router-link :to="'/catalog/' + item.id" tag="a" class="product-item">
           <div class="product-item__favorite">
@@ -16,10 +42,10 @@
           <div class="product-item__body">
             <div class="product-item__title">{{item.name}}</div>
             <div class="product-item__colors">
-              <div class="product-item__color" v-for="el of item.colors" :key="el.id" :style="{background: el.color}"></div>
+              <div class="product-item__color" v-for="el of item.colors" :key="el.id" :style="{background: `#${el.color}`}"></div>
             </div>
             <div class="product-item__sizes">
-              <div class="product-item__size"></div>
+              <div class="product-item__size" v-for="el of item.sizes" :key="el.id">{{el}}</div>
             </div>
             <div class="product-item__bottom">
               <div class="product-item__price">{{item.price}} ₽</div>
@@ -59,11 +85,53 @@ export default {
     font-size: 30px;
     line-height: 34px;
     color: #000;
+    font-weight: bold;
     margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #DADADA;
+    position: relative;
+  }
+  .index-slider__h2:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 3px;
+    width: 60px;
+    background-color: #F8694A;
+  }
+  @media screen and (max-width: 767px) {
+    .index-slider__h2{
+      font-size: 22px;
+      line-height: 26px;
+    }
   }
   .product-item{
     display: block;
     width: 100%;
+  }
+  .product-item__favorite{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 20;
+  }
+  .product-item__favorite label{
+    cursor: pointer;
+  }
+  .product-item__favorite input{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+  }
+  .product-item:hover .product-item__favorite{
+    opacity: 1;
+    visibility: visible;
   }
   .product-item__img{
     display: block;
@@ -105,6 +173,17 @@ export default {
     height: 100%;
     border-radius: 50%;
     border: 1px solid #fff;
+  }
+  .product-item__sizes{
+    display: grid;
+    grid-template-columns: repeat(6, minmax(10px, max-content));
+    grid-column-gap: 5px;
+    margin: 10px 0;
+  }
+  .product-item__size{
+    font-size: 14px;
+    line-height: 16px;
+    color: #000;
   }
   .product-item__bottom{
     display: grid;

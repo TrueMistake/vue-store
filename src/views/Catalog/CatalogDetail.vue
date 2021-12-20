@@ -31,9 +31,10 @@
               </div>
               <div class="detail-right__price">{{discharge(changeProduct[0].price)}} ₽</div>
               <div class="detail-right__colors">
+                {{}}
                 <label class="detail-right__color" v-for="(el, colorKey) in changeProduct[0].colors" :key="colorKey" @click="changeColor(el.id)" :class="[changeProduct[0].id === +el.id ? 'active' : '']">
                   <input type="radio" name="colors" v-model="colors[colorKey]" :value="el.id">
-                  <span :style="{backgroundColor: el.color}"></span>
+                  <span :style="{backgroundColor: `#${el.color}`}"></span>
                 </label>
               </div>
               <div class="detail-right__sizes">
@@ -71,8 +72,8 @@
               <div class="detail-right__article">Артикул: {{product.article}}</div>
               <div class="detail-right__name">
                 {{product.name}}
-                <div class="detail-right__favorite">
-                  <svg v-if="product.favorite === false" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div class="detail-right__favorite" @click.stop.prevent="addFavorite(product.id)">
+                  <svg v-if="favorite.filter(elem => product.id === elem).length === 0" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19.1016 5.53504C17.0625 3.81238 13.9336 4.05848 12 6.06238C10.0313 4.05848 6.90237 3.81238 4.86331 5.53504C2.22659 7.74988 2.61331 11.371 4.51174 13.3046L10.6641 19.5975C11.0157 19.9491 11.4727 20.16 12 20.16C12.4922 20.16 12.9492 19.9491 13.3008 19.5975L19.4883 13.3046C21.3516 11.371 21.7383 7.74988 19.1016 5.53504ZM18.2578 12.1093L12.1055 18.4022C12.0352 18.4725 11.9649 18.4725 11.8594 18.4022L5.70706 12.1093C4.40628 10.8085 4.16018 8.34754 5.95315 6.83582C7.32424 5.67566 9.43362 5.85145 10.7696 7.18738L12 8.45301L13.2305 7.18738C14.5313 5.85145 16.6407 5.67566 18.0117 6.80066C19.8047 8.34754 19.5586 10.8085 18.2578 12.1093Z" fill="#353642"/>
                   </svg>
                   <svg v-else width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -155,7 +156,12 @@ export default {
       changeProduct.value.push(store.getters.productDetailID(id));
     }
 
+    const addFavorite = id => {
+      store.dispatch('addFavorite', id)
+    }
+
     return{
+      addFavorite,
       addBasket,
       discharge,
       colors,
@@ -166,6 +172,7 @@ export default {
       changeColor,
       product: computed(() => store.getters.productDetailID(props.id)),
       arrToBuy: computed(() => store.getters.arrToBuy),
+      favorite: computed(() => store.getters.addFavorite)
     }
   },
   components: {
@@ -181,7 +188,7 @@ export default {
   }
   .detail-wrap{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: minmax(300px, 555px) 1fr;
     grid-column-gap: 30px;
     margin-top: 50px;
   }
@@ -205,6 +212,7 @@ export default {
     width: 100%;
     height: auto;
     object-fit: contain;
+    display: block;
   }
   .detail-left__thumb{
     display: block;
@@ -213,8 +221,15 @@ export default {
     object-fit: contain;
     cursor: pointer;
   }
+  .swiper-thumbs{
+    margin-top: 20px;
+  }
+  .swiper-slide.swiper-slide-thumb-active{
+    border: 1px solid #f8694a;
+  }
 
   .detail-right{
+
   }
   @media screen and (max-width: 767px){
     .detail-right{
@@ -242,6 +257,7 @@ export default {
   .detail-right__price{
     font-size: 20px;
     margin-bottom: 20px;
+    font-weight: bold;
   }
   .detail-right__colors{
     display: flex;
@@ -250,9 +266,11 @@ export default {
   }
   .detail-right__color{
     position: relative;
+    display: block;
+    margin-right: 10px;
   }
   .detail-right__color.active span:before{
-    border: 1px solid #000;
+    box-shadow: 0px 0px 0px 2px #fff, 0px 0px 0px 3px #f8694a;
   }
   .detail-right__color input{
     position: absolute;
@@ -264,7 +282,6 @@ export default {
     height: 20px;
     border-radius: 50%;
     position: relative;
-    margin-right: 5px;
     border: 1px solid #fff;
     cursor: pointer;
     display: block;
@@ -277,10 +294,16 @@ export default {
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    border: 1px solid transparent;
+    border: 1px solid #30323A;
   }
   .detail-right__color input:checked + span:before{
-    border: 1px solid #000;
+    box-shadow: 0px 0px 0px 2px #fff, 0px 0px 0px 3px #f8694a;
+    top: -1px;
+    left: -1px;
+    border: none;
+  }
+  .detail-right__color.active span{
+    border: none;
   }
   .detail-right__sizes{
     display: grid;
@@ -300,14 +323,12 @@ export default {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: #242857;
+    background: #F8694A;
     cursor: pointer;
     position: relative;
-    transition: all .3s linear;
   }
   .detail-right__buy:hover{
-    background: #B4BAFD;
-    box-shadow: 0 0 10px #B4BAFD;
+    background: #30323A;
   }
   .detail-right__basket-link {
     display: inline-block;
@@ -317,8 +338,8 @@ export default {
     border-radius: 4px;
     padding: 10px 20px;
     text-decoration: none;
-    color: #242857;
-    border: 1px solid #242857;
+    color: #30323A;
+    border: 1px solid #30323A;
     display: inline-block;
     position: relative;
     transition: background .3s linear;
@@ -328,7 +349,7 @@ export default {
     content: '';
     left: 50%;
     top: 0;
-    background: #242857;
+    background: #F8694A;
     width: 0%;
     height: 100%;
     z-index: -1;
@@ -336,6 +357,7 @@ export default {
   }
   .detail-right__basket:hover{
     color: #fff;
+    border: 1px solid #F8694A;
   }
   .detail-right__basket:hover:before{
     width: 100%;
@@ -345,18 +367,17 @@ export default {
     border-radius: 4px;
     padding: 10px 20px;
     text-decoration: none;
-    color: #242857;
-    border: 1px solid #242857;
+    color: #30323A;
     display: inline-block;
     position: relative;
-    transition: background .3s linear;
+    border: 1px solid #30323A;
   }
   .detail-back:before{
     position: absolute;
     content: '';
     left: 50%;
     top: 0;
-    background: #242857;
+    background: #F8694A;
     width: 0%;
     height: 100%;
     z-index: -1;
@@ -364,13 +385,13 @@ export default {
   }
   .detail-back:hover{
     color: #fff;
+    border: 1px solid #F8694A;
   }
   .detail-back:hover:before{
     width: 100%;
     left: 0;
   }
   .detail-right__buy span{
-    color: #000;
     font-size: 16px;
     font-weight: bold;
     width: 50px;
@@ -391,7 +412,11 @@ export default {
     font-weight: bold;
     margin-bottom: 10px;
   }
+  .detail-right__property-text{
+    font-size: 16px;
+  }
   .detail-right__property-text span{
     font-weight: bold;
+    font-size: 16px;
   }
 </style>

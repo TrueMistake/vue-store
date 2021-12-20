@@ -42,7 +42,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .catalog{
     margin-bottom: 100px;
   }
@@ -56,5 +56,18 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px 20px;
+  }
+  @media screen and (max-width: 992px) {
+    .catalog-wrap{
+      grid-template-columns: 250px 1fr;
+    }
+    .catalog-list{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media screen and (max-width: 767px){
+    .catalog-wrap{
+      display: block;
+    }
   }
 </style>

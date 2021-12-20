@@ -26,12 +26,20 @@ export default {
   .header-favorites{
     position: relative;
     text-align: center;
+    border: 1px solid #DADADA;
+    height: 40px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-favorites:hover{
+    box-shadow: 0px 0px 0px 1px #f8694a inset, 0px 0px 0px 0px #f8694a;
   }
   .header-favorites__count{
     position: absolute;
-    top: 10px;
+    top: 20px;
     right: -5px;
-    background: #000;
+    background: #F8694A;
     border-radius: 50%;
     width: 20px;
     height: 20px;

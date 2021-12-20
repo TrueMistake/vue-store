@@ -420,7 +420,9 @@ export default {
     line-height: 18px;
     display: block;
     width: 100%;
-    padding: 5px 10px;
+    padding: 10px;
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 0px 1px #dadada inset, 0px 0px 0px 5px transparent;
   }
   .order-data__input:focus{
     outline: none;
@@ -457,15 +459,18 @@ export default {
   }
   .order-submit{
     cursor: pointer;
-    background: #242857;
+    background: #F8694A;
     height: 40px;
     font-size: 16px;
     line-height: 20px;
     color: #fff;
     font-weight: bold;
-    border: 1px solid #242857;
+    border: none;
     padding: 10px 20px;
     margin-top: 20px;
+  }
+  .order-submit:hover{
+    background: #30323A;
   }
   .order-final{
     margin-top: 50px;

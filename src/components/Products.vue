@@ -84,6 +84,11 @@ export default {
     height: 100%;
     object-fit: cover;
   }
+  @media screen and (max-width: 1440px){
+    .product-item__img{
+      height: auto;
+    }
+  }
   .product-item__body{
     padding: 10px;
   }
@@ -105,7 +110,7 @@ export default {
     border-radius: 50%;
     display: block;
     position: relative;
-    border: 1px solid #000;
+    border: 1px solid #30323A;
   }
   .product-item__color:before{
     position: absolute;
