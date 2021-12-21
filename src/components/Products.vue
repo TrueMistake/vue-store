@@ -53,6 +53,13 @@ export default {
     width: 100%;
     position: relative;
   }
+  @media screen and (max-width: 440px){
+    .product-item{
+      max-width: 350px;
+      width: 100%;
+      margin: 0 auto 20px;
+    }
+  }
   .product-item__favorite{
     position: absolute;
     top: 15px;

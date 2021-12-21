@@ -1,5 +1,6 @@
 <template>
   <div class="sort">
+    Сортировка по:
     <select name="" class="sort-select" v-model="selected" @change="sort(this)">
       <option value=""></option>
       <option value="priceUp">Цена по возростанию</option>
@@ -42,14 +43,19 @@ export default {
     margin-bottom: 20px;
   }
   .sort-select{
+    margin-left: 10px;
     padding: 10px;
     border: none;
     box-shadow: 0px 0px 0px 1px #dadada inset, 0px 0px 0px 5px transparent;
   }
   @media screen and (max-width: 767px){
+    .sort{
+      margin-top: 20px;
+      text-align: center;
+    }
     .sort-select{
       width: 100%;
-      margin-top: 20px;
+      margin-left: 0;
     }
   }
 </style>

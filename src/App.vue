@@ -25,9 +25,11 @@ export default {
     margin: 0;
     padding: 0;
     font-size: 16px;
-    line-height: 18px;
     font-family: 'Hind', sans-serif;
     color: #4A4E5A;
+  }
+  body._over{
+    overflow-y: hidden;
   }
   .container{
     max-width: 1440px;

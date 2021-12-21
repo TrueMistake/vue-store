@@ -56,14 +56,29 @@ export default {
 
 <style scoped>
   .header{
-    padding-bottom: 20px;
+
   }
   .header-wrap{
     display: grid;
-    grid-template-columns: 100px 1fr 200px 40px 40px;
+    grid-template-columns: 300px minmax(120px, 1fr) 200px 40px 40px;
     grid-column-gap: 20px;
     align-items: center;
     padding-top: 15px;
+  }
+  @media screen and (max-width: 992px) {
+    .header-wrap{
+      grid-template-columns: 70px minmax(120px, 1fr) 130px 40px 40px;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    .header-wrap{
+      grid-template-columns: 70px minmax(120px, 1fr) 40px 40px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .header-wrap{
+      grid-template-columns: 1fr 40px 40px 40px;
+    }
   }
   .header-logo__img{
     display: block;
@@ -77,7 +92,11 @@ export default {
     color: #000;
     font-weight: bold;
   }
-
+  @media screen and (max-width: 576px){
+    .header-contacts{
+      display: none;
+    }
+  }
   .header-contacts{
     text-align: right;
   }

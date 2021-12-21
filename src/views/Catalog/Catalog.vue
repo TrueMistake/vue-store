@@ -70,4 +70,9 @@ export default {
       display: block;
     }
   }
+  @media screen and (max-width: 440px){
+    .catalog-list{
+      display: block;
+    }
+  }
 </style>

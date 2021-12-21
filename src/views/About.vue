@@ -18,11 +18,14 @@
 
 <script>
 export default {
-name: "About"
+  name: "About"
 }
 </script>
 
 <style scoped>
+  .about{
+    margin-bottom: 50px;
+  }
   .about-wrap{
     max-width: 800px;
     width: 100%;

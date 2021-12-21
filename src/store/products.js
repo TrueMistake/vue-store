@@ -227,8 +227,28 @@ export default {
             let mass = state.store.card.filter(el => el.id === payload.id);
             if (state.store.card.length && mass.length) {
                 for (let i = 0; i < state.store.card.length; i++) {
-                    if (state.store.card[i].id === payload.id ){
-                        state.store.card[i].buy += 1;
+                    if (state.store.card[i].id === payload.id){
+                        if (state.store.card[i].size === payload.size) {
+                            state.store.card[i].buy += 1;
+                        } else {
+                            state.store.card.push({
+                                id: payload.id,
+                                img: payload.img,
+                                name: payload.name,
+                                price: payload.price,
+                                size: payload.size,
+                                buy: 1
+                            });
+                        }
+                    } else {
+                        state.store.card.push({
+                            id: payload.id,
+                            img: payload.img,
+                            name: payload.name,
+                            price: payload.price,
+                            size: payload.size,
+                            buy: 1
+                        });
                     }
                 }
             } else {
@@ -237,6 +257,7 @@ export default {
                     img: payload.img,
                     name: payload.name,
                     price: payload.price,
+                    size: payload.size,
                     buy: 1
                 });
             }
@@ -409,63 +430,73 @@ export default {
                 }
             }
         },
-        filterResult(state) {
+        filterResult(state, payload) {
             const color = [];
             const size = [];
             const price = [];
             let result = [];
-            state.products.filter(product => {
-                product.colors.filter(item => {
-                    if (state.filterColor != null) {
-                        state.filterColor.filter(el => {
-                            if (el === item.color) {
-                                color.push(product)
-                            }
-                        })
-                    }
+
+            const filterProducts = array => {
+                array.filter(product => {
+                    product.colors.filter(item => {
+                        if (state.filterColor != null) {
+                            state.filterColor.filter(el => {
+                                if (el === item.color) {
+                                    color.push(product)
+                                }
+                            })
+                        }
+                    })
+
+                    product.sizes.filter(item => {
+                        if (state.filterSize != null) {
+                            state.filterSize.filter(el => {
+                                if (el === item) {
+                                    size.push(product)
+                                }
+                            })
+                        }
+                    })
                 })
 
-                product.sizes.filter(item => {
-                    if (state.filterSize != null) {
-                        state.filterSize.filter(el => {
-                            if (el === item) {
-                                size.push(product)
-                            }
-                        })
-                    }
-                })
-            })
+                if (state.props.price[0] != state.filterMin || state.props.price[1] != state.filterMax) {
+                    array.filter(product => {
+                        if (product.price >= +state.filterMin && product.price <= +state.filterMax) {
+                            price.push(product)
+                        }
+                    })
+                }
 
-            if (state.props.price[0] != state.filterMin || state.props.price[1] != state.filterMax) {
-                state.products.filter(product => {
-                    if (product.price >= +state.filterMin && product.price <= +state.filterMax) {
-                        price.push(product)
-                    }
-                })
+                if (color.length > 0 && size.length > 0 && price.length > 0) {
+                    const prop = color.filter(item => size.indexOf(item) !== -1);
+                    result = prop.filter(item => price.indexOf(item) !== -1);
+                    state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
+                }else if (color.length > 0 && size.length > 0) {
+                    result = color.filter(item => size.indexOf(item) !== -1);
+                    state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
+                } else if (color.length > 0 && price.length > 0) {
+                    result = color.filter(item => price.indexOf(item) !== -1);
+                    state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
+                } else if (size.length > 0 && price.length > 0) {
+                    result = size.filter(item => price.indexOf(item) !== -1);
+                    state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
+                } else if (color.length > 0) {
+                    state.totalFilter = color;
+                } else if (size.length > 0) {
+                    state.totalFilter = size;
+                } else if (price.length > 0) {
+                    state.totalFilter = price;
+                } else {
+                    state.totalFilter = array;
+                }
             }
 
-            if (color.length > 0 && size.length > 0 && price.length > 0) {
-                const prop = color.filter(item => size.indexOf(item) !== -1);
-                result = prop.filter(item => price.indexOf(item) !== -1);
-                state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
-            }else if (color.length > 0 && size.length > 0) {
-                result = color.filter(item => size.indexOf(item) !== -1);
-                state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
-            } else if (color.length > 0 && price.length > 0) {
-                result = color.filter(item => price.indexOf(item) !== -1);
-                state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
-            } else if (size.length > 0 && price.length > 0) {
-                result = size.filter(item => price.indexOf(item) !== -1);
-                state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
-            } else if (color.length > 0) {
-                state.totalFilter = color;
-            } else if (size.length > 0) {
-                state.totalFilter = size;
-            } else if (price.length > 0) {
-                state.totalFilter = price;
-            } else {
-                state.totalFilter = state.products;
+            if (payload === 'm') {
+                filterProducts(state.props.m)
+            } else if (payload === 'w'){
+                filterProducts(state.props.w)
             }
+
         },
         filterClear(state, payload){
             state.totalFilter = payload;
@@ -493,6 +524,7 @@ export default {
             } else {
                 state.favorites.push(payload);
             }
+            localStorage.setItem('myFavorites', JSON.stringify(state.favorites))
         }
     },
     actions: {
@@ -505,6 +537,7 @@ export default {
                 img: item.img,
                 name: item.name,
                 price: item.price,
+                size: payload.sizes,
                 buy: 1
             });
             state.commit('addLocalStorage', item)
@@ -552,8 +585,8 @@ export default {
             state.commit('sortingType', payload)
             state.commit('addSortLocalStorage', payload)
         },
-        filterResult(state) {
-            state.commit('filterResult')
+        filterResult(state, payload) {
+            state.commit('filterResult', payload)
         },
         filterClear(state, payload) {
             state.commit('filterClear', payload);
@@ -575,7 +608,8 @@ export default {
         arrToBuy: state => state.arrToBuy,
         property: state => state.props,
         filterSearch: state => state.filterColor,
-        filterResult: state => state.totalFilter.length > 0 ? state.totalFilter : state.products,
+        filterResultMan: state => state.totalFilter.length > 0 ? state.totalFilter : state.props.m,
+        filterResultWoman: state => state.totalFilter.length > 0 ? state.totalFilter : state.props.w,
         sorting: state => state.sorting,
         filterMin: state => state.filterMin,
         filterMax: state => state.filterMax,
@@ -594,6 +628,9 @@ export default {
             }
             if (localStorage.getItem('myCatalogSort')) {
                 state.sorting = JSON.parse(localStorage.getItem('myCatalogSort'));
+            }
+            if (localStorage.getItem('myFavorites')) {
+                state.favorites = JSON.parse(localStorage.getItem('myFavorites'));
             }
             const parsedUrl = new URL(window.location.href)
             if (parsedUrl.searchParams.get('min')) {

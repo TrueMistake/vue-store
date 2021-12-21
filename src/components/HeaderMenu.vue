@@ -37,10 +37,20 @@ export default {
     grid-column-gap: 30px;
     align-items: center;
   }
+  @media screen and (max-width: 576px){
+    .header-top__wrapper{
+      grid-template-columns: 1fr;
+    }
+  }
   .header-top__title{
     font-size: 14px;
     line-height: 16px;
     color: #000;
+  }
+  @media screen and (max-width: 480px){
+    .header-top__title{
+      display: none;
+    }
   }
   .header-top__list{
     display: grid;
@@ -49,6 +59,12 @@ export default {
     justify-content: right;
     align-items: center;
     text-align: right;
+  }
+  @media screen and (max-width: 480px){
+    .header-top__list{
+      text-align: center;
+      justify-content: center;
+    }
   }
   .header-top__link{
     font-size: 14px;

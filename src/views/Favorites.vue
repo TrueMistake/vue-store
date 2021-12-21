@@ -52,6 +52,22 @@ export default {
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
   }
+  @media screen and (max-width: 870px){
+    .favorites-wrap{
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media screen and (max-width: 640px){
+    .favorites-wrap{
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px 20px;
+    }
+  }
+  @media screen and (max-width: 440px){
+    .favorites-wrap{
+      display: block;
+    }
+  }
   .favorites-empty{
     font-size: 20px;
     line-height: 24px;

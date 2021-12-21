@@ -2,7 +2,7 @@
   <div class="catalog">
     <div class="container">
       <div class="catalog-wrap">
-        <app-filter></app-filter>
+        <app-filter filter="m"></app-filter>
         <div class="catalog-wrapper">
           <app-sort></app-sort>
           <div class="catalog-list">
@@ -36,7 +36,7 @@ export default {
     })
 
     return{
-      filterProducts: computed(() => store.getters.sliderMan)
+      filterProducts: computed(() => store.getters.filterResultMan)
     }
   }
 }

@@ -1,7 +1,6 @@
 <template>
   <div class="detail">
       <div class="container">
-        <router-link class="detail-back" to="/catalog" tag="a" exact>Back</router-link>
         <div class="detail-wrap">
           <template v-if="changeProduct.length">
             <div class="detail-left">
@@ -31,14 +30,18 @@
               </div>
               <div class="detail-right__price">{{discharge(changeProduct[0].price)}} ₽</div>
               <div class="detail-right__colors">
-                {{}}
+                Цвета:
                 <label class="detail-right__color" v-for="(el, colorKey) in changeProduct[0].colors" :key="colorKey" @click="changeColor(el.id)" :class="[changeProduct[0].id === +el.id ? 'active' : '']">
                   <input type="radio" name="colors" v-model="colors[colorKey]" :value="el.id">
                   <span :style="{backgroundColor: `#${el.color}`}"></span>
                 </label>
               </div>
               <div class="detail-right__sizes">
-                <div class="detail-right__size" v-for="el of product.sizes" :key="el.id">{{el}}</div>
+                Размеры:
+                <label class="detail-right__size" v-for="el of product.sizes" :key="el.id">
+                  <input type="radio" name="sizes" v-model="sizes" :value="el">
+                  <span>{{el}}</span>
+                </label>
               </div>
               <div class="detail-right__buy" @click="addBasket(changeProduct[0], 1)">
                 Купить
@@ -83,18 +86,23 @@
               </div>
               <div class="detail-right__price">{{discharge(product.price)}} ₽</div>
               <div class="detail-right__colors">
+                Цвета:
                 <label class="detail-right__color" v-for="(el, colorKey) in product.colors" :key="colorKey" @click="changeColor(el.id)" :class="[product.id === el.id ? 'active' : '']">
                   <input type="radio" name="colors" v-model="colors[colorKey]" :value="el.id">
                   <span :style="{backgroundColor: `#${el.color}`}"></span>
                 </label>
               </div>
               <div class="detail-right__sizes">
-                <div class="detail-right__size" v-for="el of product.sizes" :key="el.id">{{el}}</div>
+                Размеры:
+                <label class="detail-right__size" v-for="el of product.sizes" :key="el.id">
+                  <input type="radio" name="sizes" v-model="sizes" :value="el">
+                  <span>{{el}}</span>
+                </label>
               </div>
               <div class="detail-right__buy" @click="addBasket(product, 1)">
                 Купить
                 <template v-for="(counter, key) in arrToBuy" :key="key">
-                  <span v-if="counter.id === product.id">{{counter.buy}}</span>
+                  <span v-if="counter.id === product.id && counter.size === sizes">{{counter.buy}}</span>
                 </template>
               </div>
               <router-link tag="a" to="/basket" class="detail-right__basket-link">
@@ -132,13 +140,14 @@ export default {
     const changeThumbsSwiper = ref(null);
     const changeProduct = ref([]);
     const colors = ref({}).value;
+    const sizes = ref('');
 
     onBeforeMount(() => {
       store.getters.localStore;
     })
 
     const addBasket = (item, count) => {
-      store.dispatch('addBasket',{id: item.id, count: count})
+      store.dispatch('addBasket',{id: item.id, count: count, sizes: sizes.value})
     }
 
     const discharge = (price) =>  {
@@ -164,6 +173,7 @@ export default {
       addFavorite,
       addBasket,
       discharge,
+      sizes,
       colors,
       changeProduct,
       setThumbsSwiper,
@@ -227,6 +237,9 @@ export default {
   .swiper-slide.swiper-slide-thumb-active{
     border: 1px solid #f8694a;
   }
+  .mySwiper{
+    margin-top: 20px;
+  }
 
   .detail-right{
 
@@ -260,14 +273,14 @@ export default {
     font-weight: bold;
   }
   .detail-right__colors{
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(24px, max-content));
+    grid-column-gap: 10px;
     margin-bottom: 20px;
   }
   .detail-right__color{
     position: relative;
     display: block;
-    margin-right: 10px;
   }
   .detail-right__color.active span:before{
     box-shadow: 0px 0px 0px 2px #fff, 0px 0px 0px 3px #f8694a;
@@ -298,18 +311,50 @@ export default {
   }
   .detail-right__color input:checked + span:before{
     box-shadow: 0px 0px 0px 2px #fff, 0px 0px 0px 3px #f8694a;
-    top: -1px;
-    left: -1px;
-    border: none;
+    border: 1px solid transparent;
   }
   .detail-right__color.active span{
-    border: none;
+
   }
   .detail-right__sizes{
     display: grid;
-    grid-template-columns: repeat(6, minmax(10px, max-content));
-    grid-column-gap: 5px;
-    margin: 10px 0;
+    grid-template-columns: repeat(6, minmax(24px, max-content));
+    grid-column-gap: 10px;
+    margin: 10px 0 30px 0;
+    position: relative;
+  }
+  .detail-right__size{
+
+  }
+  .detail-right__size input{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .detail-right__size span{
+    position: relative;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #DADADA;
+    cursor: pointer;
+  }
+  .detail-right__size span:before{
+    position: absolute;
+    content: '';
+    top: -2px;
+    left: -2px;
+    width: 22px;
+    height: 22px;
+  }
+  .detail-right__sizes input:checked + span{
+    color: #F8694A;
+    border-color: #F8694A;
   }
   .detail-right__buy{
     max-width: 200px;

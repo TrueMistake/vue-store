@@ -49,7 +49,8 @@ import {ref, computed, onBeforeMount} from 'vue'
 
 export default {
   name: "Filter",
-  setup() {
+  props: ['filter'],
+  setup(props) {
     const store = useStore();
     const colors = ref([]);
     const sizes = ref([]);
@@ -63,13 +64,17 @@ export default {
     onBeforeMount(() => {
       store.getters.localStore;
       store.dispatch('property');
-      store.dispatch('filterResult');
+      store.dispatch('filterResult',props.filter);
 
-      const props = store.getters.property;
-      min.value = props.price[0];
-      max.value = props.price[1];
-      inputMin.value = store.getters.filterMin || props.price[0];
-      inputMax.value = store.getters.filterMax || props.price[1];
+      store.dispatch('filterClear', []);
+      colors.value = [];
+      sizes.value = [];
+
+      const prop = store.getters.property;
+      min.value = prop.price[0];
+      max.value = prop.price[1];
+      inputMin.value = store.getters.filterMin || prop.price[0];
+      inputMax.value = store.getters.filterMax || prop.price[1];
       colors.value = store.getters.filterColor || [];
       sizes.value = store.getters.filterSize || [];
     })
@@ -105,7 +110,7 @@ export default {
     const filterSuccess = () => {
       store.dispatch('filterSearch', colors.value);
       store.dispatch('filterSearchSize', sizes.value);
-      store.dispatch('filterResult');
+      store.dispatch('filterResult', props.filter);
 
       let baseUrl = window.location.href;
       const url = new URL(`?min=${inputMin.value}&max=${inputMax.value}&colors=${colors.value}&sizes=${sizes.value}`, baseUrl)

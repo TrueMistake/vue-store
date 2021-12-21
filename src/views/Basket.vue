@@ -1,24 +1,26 @@
 <template>
   <div class="basket">
     <div class="container">
-      <div class="basket-back">
-        <router-link class="basket-back__link" to="/catalog">Назад</router-link>
-      </div>
       <h1>Мои товары ({{totalCount}})</h1>
       <div class="basket-wrap" v-if="arrToBuy.length">
         <div class="basket-list">
           <div class="basket-item" v-for="(item, key) in arrToBuy" :key="key">
-            <router-link tag="a" :to="'/catalog/' + item.id" exact>
+            <router-link tag="a" :to="'/catalog/' + item.id" exact class="basket-item__link">
               <img :src="item.img" alt="" class="basket-item__img">
             </router-link>
-            <div class="basket-item__name">{{item.name}}</div>
+            <div class="basket-item__name">
+              <div>{{item.name}}</div>
+              Размер: <strong>{{item.size}}</strong>
+            </div>
             <div class="basket-item__num">
               <div @click="addBasket(item, 1)" class="basket-item__num-plus">+</div>
               <input type="number" @change="changeCount(item.id)" :value="item.buy">
               <div @click="remoteBasket(item, 1)" class="basket-item__num-minus">-</div>
             </div>
-            <div class="basket-item__price">за шт. <span>{{discharge(item.price)}}</span> ₽.</div>
-            <div class="basket-item__total">общая: <span>{{discharge(item.price * item.buy)}}</span> ₽.</div>
+            <div class="basket-item__block">
+              <div class="basket-item__price">за шт. <span>{{discharge(item.price)}} ₽.</span></div>
+              <div class="basket-item__total">общая: <span>{{discharge(item.price * item.buy)}} ₽.</span></div>
+            </div>
             <div class="basket-item__remove" @click="removeProduct(key)"></div>
           </div>
           <span class="basket-clear" @click="clearBasket()">Очистить корзину</span>
@@ -33,7 +35,9 @@
       </div>
       <div class="empty" v-else>
         <h1>Корзина пуста</h1>
-        <router-link class="basket-back" to="/catalog">Назад</router-link>
+        <div class="basket-back">
+          <router-link class="basket-back__link" to="/">Главная</router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -100,7 +104,6 @@ export default {
   }
   h1{
     margin-bottom: 20px;
-    line-height: 36px;
   }
   .basket-list{
     width: 100%;
@@ -115,11 +118,49 @@ export default {
     margin-bottom: 15px;
     border: 1px solid #dedede;
     border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 52px minmax(100px, 300px) 90px  1fr 20px;
+    grid-column-gap: 20px;
     align-items: center;
     padding: 0 20px 0 0;
     box-shadow: 0px 0px 0px 1px #dadada inset, 0px 0px 0px 5px transparent;
+  }
+  @media screen and (max-width: 1200px) {
+    .basket-item{
+      grid-template-columns: 52px minmax(100px, 150px) 90px  1fr 20px;
+      grid-column-gap: 10px;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .basket-item{
+      grid-template-columns: 52px 1fr 90px  140px 20px;
+      grid-column-gap: 10px;
+    }
+  }
+  @media screen and (max-width: 850px) {
+    .basket-item{
+      align-items: baseline;
+      grid-template-columns: 52px 1fr 150px 20px;
+      grid-template-areas:
+      "img name price remove"
+      "img num price remove";
+    }
+  }
+  @media screen and (max-width: 440px) {
+    .basket-item{
+      align-items: baseline;
+      grid-template-columns: 100px 1fr 20px;
+      grid-column-gap: 20px;
+      grid-template-areas:
+      "img name remove"
+      "img num remove"
+      "img price remove";
+    }
+  }
+  @media screen and (max-width: 850px){
+    .basket-item__link{
+      grid-area: img;
+    }
   }
   .basket-item__img{
     width: 52px;
@@ -127,17 +168,42 @@ export default {
     object-fit: contain;
     display: block;
   }
-  .basket-item__name{
+  @media screen and (max-width: 440px){
+    .basket-item__img{
+      width: 100px;
+    }
+  }
+
+  @media screen and (max-width: 850px){
+    .basket-item__name{
+      grid-area: name;
+      align-self: center;
+    }
+  }
+  @media screen and (max-width: 440px){
+    .basket-item__name{
+      margin-bottom: 10px;
+    }
   }
   .basket-item__num{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 20px 30px 20px;
+    grid-column-gap: 10px;
     align-items: center;
+  }
+  @media screen and (max-width: 850px){
+    .basket-item__num{
+      grid-area: num;
+    }
+  }
+  @media screen and (max-width: 440px){
+    .basket-item__num{
+      margin-bottom: 10px;
+    }
   }
   .basket-item__num input{
     width: 30px;
     padding: 5px 0px;
-    margin: 0 10px;
     text-align: center;
     border: none;
   }
@@ -159,16 +225,37 @@ export default {
   .basket-item__num-plus{
     cursor: pointer;
     width: 20px;
-    padding: 5px 10px;
     text-align: center;
     font-weight: bold;
   }
   .basket-item__num-minus{
     cursor: pointer;
     width: 20px;
-    padding: 5px 10px;
     text-align: center;
     font-weight: bold;
+  }
+  .basket-item__block{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-column-gap: 50px;
+  }
+  @media screen and (max-width: 850px){
+    .basket-item__block{
+      grid-area: price;
+      align-self: center;
+    }
+  }
+  @media screen and (max-width: 1200px){
+    .basket-item__block{
+      grid-column-gap: 10px;
+    }
+  }
+  @media screen and (max-width: 992px){
+    .basket-item__block{
+      grid-template-columns: 1fr;
+      grid-column-gap: 0;
+    }
   }
   .basket-item__price span{
     font-weight: bold;
@@ -179,6 +266,12 @@ export default {
     position: relative;
     cursor: pointer;
     box-shadow: 0px 0px 0px 1px #dadada inset, 0px 0px 0px 6px transparent;
+  }
+  @media screen and (max-width: 850px){
+    .basket-item__remove{
+      grid-area: remove;
+      align-self: center;
+    }
   }
   .basket-item__remove:hover{
     box-shadow: 0px 0px 0px 1px #f8694a inset, 0px 0px 0px 0px #f8694a;
@@ -247,6 +340,12 @@ export default {
     display: inline-block;
     position: relative;
   }
+  @media screen and (max-width: 440px){
+    .basket-clear{
+      display: block;
+      text-align: center;
+    }
+  }
   .basket-clear:before{
     position: absolute;
     content: '';
@@ -303,6 +402,7 @@ export default {
     left: 0;
   }
   .empty{
+    margin-bottom: 50px;
   }
   .empty h1{
     color: red;
