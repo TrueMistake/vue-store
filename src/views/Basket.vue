@@ -13,9 +13,9 @@
               Размер: <strong>{{item.size}}</strong>
             </div>
             <div class="basket-item__num">
-              <div @click="addBasket(item, 1)" class="basket-item__num-plus">+</div>
-              <input type="number" @change="changeCount(item.id)" :value="item.buy">
               <div @click="remoteBasket(item, 1)" class="basket-item__num-minus">-</div>
+              <input type="number" @change="changeCount(item.id)" :value="item.buy">
+              <div @click="addBasket(item, 1)" class="basket-item__num-plus">+</div>
             </div>
             <div class="basket-item__block">
               <div class="basket-item__price">за шт. <span>{{discharge(item.price)}} ₽.</span></div>
