@@ -224,32 +224,28 @@ export default {
             state.store['total'] = state.totalPrice;
         },
         addStore(state, payload) {
-            let mass = state.store.card.filter(el => el.id === payload.id);
-            if (state.store.card.length && mass.length) {
+            if (state.store.card.length) {
+                let x = false;
+                let key = null;
                 for (let i = 0; i < state.store.card.length; i++) {
-                    if (state.store.card[i].id === payload.id){
-                        if (state.store.card[i].size === payload.size) {
-                            state.store.card[i].buy += 1;
-                        } else {
-                            state.store.card.push({
-                                id: payload.id,
-                                img: payload.img,
-                                name: payload.name,
-                                price: payload.price,
-                                size: payload.size,
-                                buy: 1
-                            });
-                        }
-                    } else {
-                        state.store.card.push({
-                            id: payload.id,
-                            img: payload.img,
-                            name: payload.name,
-                            price: payload.price,
-                            size: payload.size,
-                            buy: 1
-                        });
+                    if (state.store.card[i].id === payload.id && state.store.card[i].size === payload.size) {
+                        x = true;
+                        key = i;
+                        break;
                     }
+                }
+
+                if (x) {
+                    state.store.card[key].buy += 1;
+                } else {
+                    state.store.card.push({
+                        id: payload.id,
+                        img: payload.img,
+                        name: payload.name,
+                        price: payload.price,
+                        size: payload.size,
+                        buy: 1
+                    });
                 }
             } else {
                 state.store.card.push({
