@@ -15,11 +15,9 @@
         <app-favorite></app-favorite>
         <app-basket :totalCount="totalCount"></app-basket>
       </div>
-
     </div>
     <app-nav></app-nav>
   </header>
-  <router-view></router-view>
 </template>
 
 <script>

@@ -1,5 +1,6 @@
 <template>
   <app-header></app-header>
+  <main class="main"><router-view></router-view></main>
   <app-footer></app-footer>
 </template>
 
@@ -51,6 +52,10 @@ export default {
     .container{
       max-width: 100%;
     }
+  }
+  .main{
+    min-height: calc(100vh - 480px);
+    height: 100%;
   }
   ul{
     margin: 0;

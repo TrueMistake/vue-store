@@ -9,6 +9,7 @@ import About from "../views/About";
 import Basket from "../views/Basket";
 import Order from "../views/Order";
 import Favorites from "../views/Favorites";
+import PageNotFound from "../views/404";
 
 
 const routes = [
@@ -67,6 +68,14 @@ const routes = [
         component: Favorites,
         props: true
     },
+    {
+        path: '/:catchAll(.*)',
+        redirect: '/404'
+    },
+    {
+        path: '/404',
+        component: PageNotFound,
+    }
 
 ];
 

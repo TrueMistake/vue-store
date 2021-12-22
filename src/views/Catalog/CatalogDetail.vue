@@ -99,7 +99,7 @@
                   <span>{{el}}</span>
                 </label>
               </div>
-              <div class="detail-right__buy" @click="addBasket(product, 1)">
+              <div class="detail-right__buy" :class="{'_disabled': !sizes.length}" @click="addBasket(product, 1)">
                 Купить
                 <template v-for="(counter, key) in arrToBuy" :key="key">
                   <span v-if="counter.id === product.id && counter.size === sizes">{{counter.buy}}</span>
@@ -147,7 +147,7 @@ export default {
     })
 
     const addBasket = (item, count) => {
-      store.dispatch('addBasket',{id: item.id, count: count, sizes: sizes.value})
+      sizes.value.length ? store.dispatch('addBasket',{id: item.id, count: count, sizes: sizes.value}) : false;
     }
 
     const discharge = (price) =>  {
@@ -375,6 +375,29 @@ export default {
   .detail-right__buy:hover{
     background: #30323A;
   }
+  .detail-right__buy span{
+    font-size: 16px;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+  }
+  .detail-right__buy._disabled{
+    color: #30323A;
+    background: #eeeeef;
+    cursor: default;
+  }
+  .detail-right__buy._disabled:hover{
+    color: #30323A;
+    background: #eeeeef;
+  }
+  .detail-right__buy._disabled span{
+    color: #30323A;
+  }
   .detail-right__basket-link {
     display: inline-block;
     margin-top: 20px;
@@ -407,45 +430,6 @@ export default {
   .detail-right__basket:hover:before{
     width: 100%;
     left: 0;
-  }
-  .detail-back{
-    border-radius: 4px;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #30323A;
-    display: inline-block;
-    position: relative;
-    border: 1px solid #30323A;
-  }
-  .detail-back:before{
-    position: absolute;
-    content: '';
-    left: 50%;
-    top: 0;
-    background: #F8694A;
-    width: 0%;
-    height: 100%;
-    z-index: -1;
-    transition: all .3s ease;
-  }
-  .detail-back:hover{
-    color: #fff;
-    border: 1px solid #F8694A;
-  }
-  .detail-back:hover:before{
-    width: 100%;
-    left: 0;
-  }
-  .detail-right__buy span{
-    font-size: 16px;
-    font-weight: bold;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color: #fff;
   }
   .detail-right__property{
     margin-top: 40px;

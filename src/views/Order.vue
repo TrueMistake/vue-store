@@ -147,9 +147,9 @@
           </div>
 
           <div class="order-final">
-            <div class="order-final__price">Стоимость товара: <span>{{discharge(totalPrice)}} Р</span></div>
+            <div class="order-final__price">Стоимость товара: <span>{{discharge(totalPrice)}} ₽</span></div>
             <div class="order-final__delivery">Стоимость доставки: <span>{{deliveryPriceHtml()}}</span></div>
-            <div class="order-final__total">Итого: <span>{{ deliveryPrice != 'бесплатно' ? discharge(totalPrice + +deliveryPrice) : discharge(totalPrice)}} Р</span></div>
+            <div class="order-final__total">Итого: <span>{{ deliveryPrice != 'бесплатно' ? discharge(totalPrice + +deliveryPrice) : discharge(totalPrice)}} ₽</span></div>
             <button type="submit" class="order-submit" @click="profite">Подтвердить</button>
           </div>
         </form>
@@ -355,15 +355,6 @@ export default {
     const validEmail = ()=> {
       return /^[\w]{1}[\w-\]*@[\w-]+\.[a-z]{2,4}$/i.test(email.value);
     };
-    /*const sendForm = () => {
-      fetch('http://localhost:8080/user.php', success.value)
-          .then(response => {
-            console.log('response',response);
-          })
-          .catch(error => {
-            console.log('error', error);
-          })
-    };*/
     return {
       name,
       secondName,
@@ -397,6 +388,8 @@ export default {
     margin-bottom: 50px;
   }
   .order-form{
+    max-width: 400px;
+    width: 100%;
   }
   .order-block{
     margin-bottom: 40px;
@@ -408,6 +401,19 @@ export default {
     line-height: 24px;
     margin-bottom: 20px;
     font-weight: bold;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #DADADA;
+    position: relative;
+  }
+  .order-block__title:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 3px;
+    width: 60px;
+    background-color: #F8694A;
   }
   .order-block__label{
     display: block;
@@ -519,7 +525,7 @@ export default {
   }
   .order-courier{
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, 126px);
     grid-gap: 10px;
   }
   .order-courier__input{
@@ -536,7 +542,7 @@ export default {
   }
   .order-mail{
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
     margin-bottom: 20px;
   }
