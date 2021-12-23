@@ -176,6 +176,7 @@ export default {
       sizes,
       colors,
       changeProduct,
+      thumbsSwiper,
       setThumbsSwiper,
       setChangeThumbsSwiper,
       changeThumbsSwiper,
