@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from "../views/Home";
-import Catalog from "../views/Catalog/Catalog";
 import Man from "../views/Catalog/CatalogMan";
 import Woman from "../views/Catalog/CatalogWoman";
 import CatalogDetail from "../views/Catalog/CatalogDetail";
@@ -17,12 +16,6 @@ const routes = [
         path: '/',
         name: 'Home',
         component: Home
-    },
-    {
-        path: '/catalog',
-        name: 'Catalog',
-        component: Catalog,
-        props: true
     },
     {
         path: '/man',

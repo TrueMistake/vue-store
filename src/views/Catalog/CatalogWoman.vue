@@ -43,5 +43,35 @@ export default {
 </script>
 
 <style scoped>
-
+.catalog{
+  margin-bottom: 100px;
+}
+.catalog-wrap{
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-column-gap: 30px;
+}
+.catalog-list{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px 20px;
+}
+@media screen and (max-width: 992px) {
+  .catalog-wrap{
+    grid-template-columns: 250px 1fr;
+  }
+  .catalog-list{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 767px){
+  .catalog-wrap{
+    display: block;
+  }
+}
+@media screen and (max-width: 440px){
+  .catalog-list{
+    display: block;
+  }
+}
 </style>

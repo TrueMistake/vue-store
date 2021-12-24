@@ -218,13 +218,13 @@ export default {
     const profite = (e) => {
       e.preventDefault();
       if (name.value) {
-        dataUser.value.name = name.value;
+        dataUser.value.name = name.value.trim();
         document.querySelector('.order input[name="NAME"]').closest('.order-block__label').classList.remove('isError');
       } else {
         document.querySelector('.order input[name="NAME"]').closest('.order-block__label').classList.add('isError');
       }
       if (secondName.value) {
-        dataUser.value.secondName = secondName.value;
+        dataUser.value.secondName = secondName.value.trim();
         document.querySelector('.order input[name="SECONDNAME"]').closest('.order-block__label').classList.remove('isError');
       } else {
         document.querySelector('.order input[name="SECONDNAME"]').closest('.order-block__label').classList.add('isError');
@@ -257,12 +257,12 @@ export default {
         switch (delivery.value) {
           case 'Курьером':
             profiteCheckInput();
-            dataUser.value.comments = document.querySelector('.order #COMMENTS').value;
+            dataUser.value.comments = document.querySelector('.order #COMMENTS').value.trim();
             break;
           case 'Почтой':
             profiteCheckInput();
-            if (document.querySelector('.order .order-mail input[name="INDEX"]').value) {
-              dataUser.value.index = document.querySelector('.order .order-mail input[name="INDEX"]').value;
+            if (document.querySelector('.order .order-mail input[name="INDEX"]').value.trim()) {
+              dataUser.value.index = document.querySelector('.order .order-mail input[name="INDEX"]').value.trim();
               document.querySelector('.order .order-mail input[name="INDEX"]').closest('.order-block__label').classList.remove('isError');
             } else {
               document.querySelector('.order .order-mail input[name="INDEX"]').closest('.order-block__label').classList.add('isError');
