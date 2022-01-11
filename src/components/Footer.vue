@@ -14,10 +14,10 @@
             <router-link to="/" tag="a" exact class="nav-link">Главная</router-link>
           </li>
           <li class="footer-item">
-            <router-link :to="{name: 'Catalog'}" tag="a" exact class="nav-link">Женщинам</router-link>
+            <router-link :to="{name: 'Woman'}" tag="a" exact class="nav-link">Женщинам</router-link>
           </li>
           <li class="footer-item">
-            <router-link :to="{name: 'Catalog'}" tag="a" exact class="nav-link">Мужчинам</router-link>
+            <router-link :to="{name: 'Man'}" tag="a" exact class="nav-link">Мужчинам</router-link>
           </li>
           <li class="footer-item">
             <router-link :to="{name: 'About'}" tag="a" exact class="nav-link">О нас</router-link>

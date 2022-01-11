@@ -4,7 +4,7 @@
       <div class="catalog-wrap">
         <app-filter filter="w"></app-filter>
         <div class="catalog-wrapper">
-          <app-sort></app-sort>
+          <app-sort :options="options" defaultValue="Сортировка"></app-sort>
           <div class="catalog-list">
             <app-products :products="filterProducts"></app-products>
           </div>
@@ -30,13 +30,19 @@ export default {
   },
   setup() {
     const store = useStore();
+    const options = [
+      {value: 'priceUp', name: 'Цена по возростанию'},
+      {value: 'priceDown', name: 'Цена по убыванию'}
+    ]
 
     onBeforeMount(() =>{
       store.getters.localStore
+      store.dispatch('property');
     })
 
     return{
-      filterProducts: computed(() => store.getters.filterResultWoman)
+      filterProducts: computed(() => store.getters.filterResultWoman),
+      options
     }
   }
 }

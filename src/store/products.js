@@ -172,20 +172,6 @@ export default {
                 favorite: false
             },
         ],
-        /*sizes: [
-            {
-                id: 1,
-                value: 'X'
-            },
-            {
-                id: 2,
-                value: 'XL'
-            },
-            {
-                id: 3,
-                value: 'XXL'
-            }
-        ],*/
         mainSlider: [
             {
                 link: '',
@@ -405,86 +391,55 @@ export default {
         },
         sortingProduct(state, payload){
             if (state.totalFilter.length > 0) {
-                if (payload == 'priceUp') {
-                    state.totalFilter.sort(function (a, b) {
-                        return a.price - b.price;
-                    });
-                } else if (payload == 'priceDown'){
-                    state.totalFilter.sort(function (a, b) {
-                        return b.price - a.price;
-                    });
-                }
+                sort(state.totalFilter)
             } else {
-                if (payload == 'priceUp') {
-                    state.products.sort(function (a, b) {
-                        return a.price - b.price;
-                    });
-                } else if (payload == 'priceDown'){
-                    state.products.sort(function (a, b) {
-                        return b.price - a.price;
-                    });
-                }
+                sort(state.props.w)
+                sort(state.props.m)
+            }
+
+            function sort(arr) {
+                return payload === 'priceUp' ? arr.sort((a, b) => a.price - b.price) : arr.sort((a, b) => b.price - a.price)
             }
         },
         filterResult(state, payload) {
-            const color = [];
-            const size = [];
-            const price = [];
-            let result = [];
+            let result = null;
 
             const filterProducts = array => {
-                array.filter(product => {
-                    product.colors.filter(item => {
-                        if (state.filterColor != null) {
-                            state.filterColor.filter(el => {
-                                if (el === item.color) {
-                                    color.push(product)
-                                }
-                            })
-                        }
-                    })
-
-                    product.sizes.filter(item => {
-                        if (state.filterSize != null) {
-                            state.filterSize.filter(el => {
-                                if (el === item) {
-                                    size.push(product)
-                                }
-                            })
-                        }
-                    })
+                result = array.filter(product => {
+                    if (product.price >= (+state.filterMin || +state.props.price[0]) && product.price <= (+state.filterMax || +state.props.price[1])) {
+                        return product
+                    }
                 })
-
-                if (state.props.price[0] != state.filterMin || state.props.price[1] != state.filterMax) {
-                    array.filter(product => {
-                        if (product.price >= +state.filterMin && product.price <= +state.filterMax) {
-                            price.push(product)
-                        }
+                    .filter(product => {
+                        let test = null;
+                        product.colors.filter(item => {
+                            if (state.filterColor != null && state.filterColor.length > 0) {
+                                return state.filterColor.filter(el => {
+                                    if (el === item.color) {
+                                        test = product
+                                    }
+                                })
+                            }
+                            return test = product
+                        })
+                        return test;
                     })
-                }
+                    .filter(product => {
+                        let test = null;
+                        product.sizes.filter(item => {
+                            if (state.filterSize != null && state.filterSize.length > 0) {
+                               return state.filterSize.filter(el => {
+                                   if (el === item) {
+                                       test = product
+                                   }
+                               })
+                            }
+                            return test = product
+                        })
+                        return test;
+                    })
 
-                if (color.length > 0 && size.length > 0 && price.length > 0) {
-                    const prop = color.filter(item => size.indexOf(item) !== -1);
-                    result = prop.filter(item => price.indexOf(item) !== -1);
-                    state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
-                }else if (color.length > 0 && size.length > 0) {
-                    result = color.filter(item => size.indexOf(item) !== -1);
-                    state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
-                } else if (color.length > 0 && price.length > 0) {
-                    result = color.filter(item => price.indexOf(item) !== -1);
-                    state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
-                } else if (size.length > 0 && price.length > 0) {
-                    result = size.filter(item => price.indexOf(item) !== -1);
-                    state.totalFilter = result.length > 0 ? [...new Set(result)] : state.products;
-                } else if (color.length > 0) {
-                    state.totalFilter = color;
-                } else if (size.length > 0) {
-                    state.totalFilter = size;
-                } else if (price.length > 0) {
-                    state.totalFilter = price;
-                } else {
-                    state.totalFilter = array;
-                }
+                state.totalFilter = result.length > 0 ? [...new Set(result)] : [];
             }
 
             if (payload === 'm') {
@@ -492,7 +447,6 @@ export default {
             } else if (payload === 'w'){
                 filterProducts(state.props.w)
             }
-
         },
         filterClear(state, payload){
             state.totalFilter = payload;
@@ -579,7 +533,7 @@ export default {
         sorting(state, payload) {
             state.commit('sortingProduct', payload)
             state.commit('sortingType', payload)
-            state.commit('addSortLocalStorage', payload)
+            // state.commit('addSortLocalStorage', payload)
         },
         filterResult(state, payload) {
             state.commit('filterResult', payload)
@@ -622,11 +576,11 @@ export default {
                 state.store.card = JSON.parse(localStorage.getItem('myProduct')).card;
                 state.arrToBuy = JSON.parse(localStorage.getItem('myProduct')).card;
             }
-            if (localStorage.getItem('myCatalogSort')) {
-                state.sorting = JSON.parse(localStorage.getItem('myCatalogSort'));
-            }
             if (localStorage.getItem('myFavorites')) {
                 state.favorites = JSON.parse(localStorage.getItem('myFavorites'));
+            }
+            if (localStorage.getItem('myCatalogSort')) {
+                state.sorting = JSON.parse(localStorage.getItem('myCatalogSort'));
             }
             const parsedUrl = new URL(window.location.href)
             if (parsedUrl.searchParams.get('min')) {
