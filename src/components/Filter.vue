@@ -280,7 +280,6 @@ export default {
     width: 20px;
     height: 20px;
     border: 1px solid #000;
-    transition: all .3s linear;
   }
   .filter-item__input:checked + .filter-item__span:before{
     border: none;
@@ -304,7 +303,6 @@ export default {
     font-weight: bold;
     cursor: pointer;
     color: #fff;
-    transition: all .3s linear;
   }
   .filter-success:hover{
     background: #30323A;
@@ -320,7 +318,6 @@ export default {
     font-weight: bold;
     cursor: pointer;
     color: #fff;
-    transition: all .3s linear;
   }
   .filter-clear:hover{
     background: #30323A;

@@ -56,6 +56,7 @@ export default {
   .main{
     min-height: calc(100vh - 480px);
     height: 100%;
+    padding-top: 20px;
   }
   ul{
     margin: 0;

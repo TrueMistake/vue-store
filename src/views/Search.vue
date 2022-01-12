@@ -2,9 +2,14 @@
   <div class="catalog">
     <div class="container">
       <div class="catalog-wrapper">
+        <template v-if="isSearch">
         <div class="catalog-list">
-          <app-products :products="isSearch"></app-products>
+            <app-products :products="isSearch"></app-products>
         </div>
+        </template>
+        <template v-else>
+          <h1>Нечего не найдено!</h1>
+        </template>
       </div>
     </div>
   </div>
@@ -43,6 +48,10 @@ export default {
 </script>
 
 <style scoped>
+h1{
+  text-align: center;
+  margin-top: 100px;
+}
 .catalog{
   margin-bottom: 100px;
 }

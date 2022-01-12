@@ -355,7 +355,6 @@ export default {
     width: 0%;
     height: 100%;
     z-index: -1;
-    transition: all .3s ease;
   }
   .basket-clear:hover{
     color: #fff;
@@ -380,7 +379,6 @@ export default {
     border: 1px solid #30323A;
     position: relative;
     text-align: center;
-    transition: background .3s linear;
   }
   .basket-link__order:before{
     position: absolute;
@@ -391,7 +389,6 @@ export default {
     width: 0%;
     height: 100%;
     z-index: -1;
-    transition: all .3s ease;
   }
   .basket-link__order:hover{
     color: #fff;
@@ -420,7 +417,6 @@ export default {
     color: #30323A;
     display: inline-block;
     position: relative;
-    transition: background .3s linear;
   }
   .basket-back__link:before{
     position: absolute;
@@ -431,7 +427,6 @@ export default {
     width: 0%;
     height: 100%;
     z-index: -1;
-    transition: all .3s ease;
   }
   .basket-back__link:hover{
     color: #fff;

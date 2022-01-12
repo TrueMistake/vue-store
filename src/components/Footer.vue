@@ -1,4 +1,5 @@
 <template>
+  <app-subscribe></app-subscribe>
   <footer class="footer">
     <div class="container">
       <div class="footer-wrap">
@@ -24,6 +25,9 @@
           </li>
           <li class="footer-item">
             <router-link :to="{name: 'Contacts'}" tag="a" exact class="nav-link">Контакты</router-link>
+          </li>
+          <li class="footer-item">
+            <router-link to="/privacy" tag="a" exact class="nav-link">Политика кофиденциальности</router-link>
           </li>
         </ul>
         <div class="footer-contacts">
@@ -53,8 +57,13 @@
 </template>
 
 <script>
+import appSubscribe from "@/components/Subscribe";
+
 export default {
-  name: "Footer"
+  name: "Footer",
+  components:{
+    'app-subscribe': appSubscribe
+  }
 }
 </script>
 

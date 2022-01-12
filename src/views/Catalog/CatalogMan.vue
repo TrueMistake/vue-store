@@ -5,9 +5,14 @@
         <app-filter filter="m"></app-filter>
         <div class="catalog-wrapper">
           <app-sort :options="options" defaultValue="Сортировка"></app-sort>
-          <div class="catalog-list">
-            <app-products :products="filterProducts"></app-products>
-          </div>
+          <template v-if="filterProducts === null">
+            <h1>Нечего не найдено попробуйте изменить фильтр</h1>
+          </template>
+          <template v-if="filterProducts.length">
+            <div class="catalog-list">
+              <app-products :products="filterProducts"></app-products>
+            </div>
+          </template>
         </div>
       </div>
     </div>

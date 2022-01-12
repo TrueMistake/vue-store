@@ -133,7 +133,6 @@ export default {
     position: relative;
     z-index: 1;
     box-shadow: 0px 0px 0px 1px #dadada inset, 0px 0px 0px 5px transparent;
-    -webkit-transition: 0.3s all;
   }
   .header-search__input:focus{
     outline: none;

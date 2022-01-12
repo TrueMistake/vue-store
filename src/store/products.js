@@ -198,7 +198,8 @@ export default {
         sorting: '',
         totalFilter:[],
         hits:[],
-        favorites: []
+        favorites: [],
+        subscribe: ''
     },
     mutations: {
         totalCount(state, payload) {
@@ -439,7 +440,7 @@ export default {
                         return test;
                     })
 
-                state.totalFilter = result.length > 0 ? [...new Set(result)] : [];
+                state.totalFilter = result.length > 0 ? [...new Set(result)] : null;
             }
 
             if (payload === 'm') {
@@ -475,6 +476,10 @@ export default {
                 state.favorites.push(payload);
             }
             localStorage.setItem('myFavorites', JSON.stringify(state.favorites))
+        },
+        subscribe(state, payload) {
+            state.subscribe = payload;
+            localStorage.setItem('mySubscribe', JSON.stringify(state.subscribe))
         }
     },
     actions: {
@@ -543,6 +548,9 @@ export default {
         },
         addFavorite(state, payload){
             state.commit('addFavorite', payload)
+        },
+        subscribe(state, payload) {
+            state.commit('subscribe', payload)
         }
     },
     getters: {
@@ -559,7 +567,18 @@ export default {
         property: state => state.props,
         filterSearch: state => state.filterColor,
         filterResultMan: state => state.totalFilter.length > 0 ? state.totalFilter : state.props.m,
-        filterResultWoman: state => state.totalFilter.length > 0 ? state.totalFilter : state.props.w,
+        filterResultWoman: state => {
+            console.log('state.totalFilter', state.totalFilter)
+            console.log('state.totalFilter type', typeof state.totalFilter)
+            if (state.totalFilter === null) {
+                return null
+            }
+            if (state.totalFilter.length) {
+                return state.totalFilter
+            } else {
+                return state.props.w
+            }
+        },
         sorting: state => state.sorting,
         filterMin: state => state.filterMin,
         filterMax: state => state.filterMax,
@@ -569,6 +588,7 @@ export default {
         sliderMan: state => state.props.m,
         sliderWoman: state => state.props.w,
         addFavorite: state => state.favorites,
+        subscribe: state => state.subscribe,
         localStore(state) {
             if (localStorage.getItem('myProduct')) {
                 state.totalCount = JSON.parse(localStorage.getItem('myProduct')).count;
@@ -581,6 +601,9 @@ export default {
             }
             if (localStorage.getItem('myCatalogSort')) {
                 state.sorting = JSON.parse(localStorage.getItem('myCatalogSort'));
+            }
+            if (localStorage.getItem('mySubscribe')) {
+                state.subscribe = JSON.parse(localStorage.getItem('mySubscribe'));
             }
             const parsedUrl = new URL(window.location.href)
             if (parsedUrl.searchParams.get('min')) {

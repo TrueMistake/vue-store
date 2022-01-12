@@ -10,6 +10,7 @@ import Order from "../views/Order";
 import Favorites from "../views/Favorites";
 import PageNotFound from "../views/404";
 import Search from "@/views/Search";
+import Privacy from "@/views/Privacy";
 
 
 const routes = [
@@ -69,14 +70,17 @@ const routes = [
         props: true
     },
     {
-        path: '/:catchAll(.*)',
-        redirect: '/404'
+        path: '/privacy',
+        component: Privacy,
     },
     {
         path: '/404',
         component: PageNotFound,
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        component: PageNotFound
     }
-
 ];
 
 const router = createRouter({

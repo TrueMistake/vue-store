@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
   .nav{
-    margin: 20px 0;
+    margin-top: 20px;
     height: 50px;
     background: #4A4E5A;
   }

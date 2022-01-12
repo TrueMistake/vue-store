@@ -4,7 +4,7 @@
     <div class="container">
       <app-slider-product title="БЕСТСЕЛЛЕРЫ" :products="products"></app-slider-product>
       <app-slider-product title="КУРТКИ МУЖСКИЕ" :products="sliderMan"></app-slider-product>
-      <app-slider-product title="ЖЕНСКИЕ КОВТЫ" :products="sliderWoman"></app-slider-product>
+      <app-slider-product title="ЖЕНСКИЕ КОФТЫ" :products="sliderWoman"></app-slider-product>
     </div>
     <h1>Магазин True</h1>
     <div class="main-text">

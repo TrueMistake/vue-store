@@ -411,7 +411,6 @@ export default {
     border: 1px solid #30323A;
     display: inline-block;
     position: relative;
-    transition: background .3s linear;
   }
   .detail-right__basket:before{
     position: absolute;
@@ -422,7 +421,6 @@ export default {
     width: 0%;
     height: 100%;
     z-index: -1;
-    transition: all .3s ease;
   }
   .detail-right__basket:hover{
     color: #fff;
