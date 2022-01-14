@@ -29,23 +29,25 @@
               <label class="order-block__subtitle" for="order-country">Страна:</label>
               <input class="order-data__input order-country" list="order-country-select" id="order-country" name="COUNTRY" v-model="country" required/>
               <datalist id="order-country-select">
-                <option value="Россия">Россия</option>
-                <option value="Казахстан">Казахстан</option>
+                <option v-for="country of countryOptions" :key="country" :value="country">{{ country }}</option>
               </datalist>
               <span class="order-error">Ошибка заполнения поля</span>
             </div>
-            <div class="order-block__region order-block__label">
-              <label class="order-block__subtitle" for="order-region">Регион:</label>
-              <input class="order-data__input order-region" list="order-region-select" id="order-region" name="REGION" v-model="region" required/>
-              <datalist id="order-region-select">
-                <option value="Москва и МО">Москва и МО</option>
-                <option value="Владивосток">Владивосток</option>
-                <option value="Краснодар">Краснодар</option>
-                <option value="Владимир">Владимир</option>
-                <option value="Санкт-Петербург">Санкт-Петербург</option>
-              </datalist>
-              <span class="order-error">Ошибка заполнения поля</span>
-            </div>
+            <template v-if="country">
+              <div class="order-block__region order-block__label">
+                <label class="order-block__subtitle" for="order-region">Регион:</label>
+                <input class="order-data__input order-region" list="order-region-select" id="order-region" name="REGION" v-model="region" required/>
+                <datalist id="order-region-select">
+                  <template v-if="country === countryOptions[0]">
+                    <option v-for="region of regionRU" :key="region" :value="region">{{region}}</option>
+                  </template>
+                  <template v-if="country === countryOptions[1]">
+                    <option v-for="region of regionKZ" :key="region" :value="region">{{region}}</option>
+                  </template>
+                </datalist>
+                <span class="order-error">Ошибка заполнения поля</span>
+              </div>
+            </template>
           </div>
           <div class="order-block">
             <div class="order-block__title">Способ доставки:</div>
@@ -186,8 +188,6 @@ export default {
   props: ['fortamPrice'],
   setup() {
     const store = useStore();
-    const country = ref('');
-    const region = ref('');
     const address = ref('');
     const delivery = ref('');
     const deliveryPrice = ref(null);
@@ -196,6 +196,29 @@ export default {
     const courier = ref(false);
     const mail = ref(false);
     const success = ref(false);
+    const country = ref('');
+    const countryOptions = [
+        'Россия',
+        'Казахстан'
+    ]
+    const region = ref('');
+    const regionRU = [
+      'Москва',
+      'Владивосток',
+      'Уфа',
+      'Самара',
+      'Санкт-Петербург',
+      'Коломна',
+      'Зеленоград',
+      'Магадан'
+    ];
+    const regionKZ = [
+      'Актобе',
+      'Алматы',
+      'Атырау',
+      'Нур-Султан',
+      'Павлодар'
+    ];
 
     const checkFormInput = ref({
       name: {
@@ -498,6 +521,9 @@ export default {
     };
     return {
       country,
+      countryOptions,
+      regionRU,
+      regionKZ,
       region,
       address,
       delivery,
