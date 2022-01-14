@@ -6,43 +6,43 @@
         <form action="" class="order-form">
           <div class="order-block">
             <div class="order-block__title">Данные:</div>
-            <label class="order-block__label">
-              <input class="order-data__input" type="text" name="NAME" placeholder="Ваше имя" v-model="name">
-              <span class="order-error">Ошибка заполнения поля</span>
-            </label>
-            <label class="order-block__label">
-              <input class="order-data__input" type="text" name="SECONDNAME" placeholder="Ваше фамилия" v-model="secondName">
-              <span class="order-error">Ошибка заполнения поля</span>
-            </label>
-            <label class="order-block__label">
-              <input class="order-data__input" type="tel" name="PHONE" placeholder="Телефон" v-model="phone">
-              <span class="order-error">Ошибка заполнения поля</span>
-            </label>
-            <label class="order-block__label">
-              <input class="order-data__input" type="email" name="EMAIL" placeholder="email" v-model="email">
-              <span class="order-error">Ошибка заполнения поля</span>
-            </label>
+            <Input
+                :data="checkFormInput.name"
+                @change="event => changeHandler(event.target.value, checkFormInput.name.title)"
+            />
+            <Input
+                :data="checkFormInput.secondName"
+                @change="event => changeHandler(event.target.value, checkFormInput.secondName.title)"
+            />
+            <Input
+                :data="checkFormInput.phone"
+                @change="event => changeHandler(event.target.value, checkFormInput.phone.title)"
+            />
+            <Input
+                :data="checkFormInput.email"
+                @change="event => changeHandler(event.target.value, checkFormInput.email.title)"
+            />
           </div>
           <div class="order-block">
             <div class="order-block__title">Доставка:</div>
-            <div class="order-block__delivery order-block__label">
+            <div class="order-block__country order-block__label">
               <label class="order-block__subtitle" for="order-country">Страна:</label>
-              <input class="order-data__input order-country" list="order-country-select" id="order-country" name="COUNTRY" v-model="country"/>
+              <input class="order-data__input order-country" list="order-country-select" id="order-country" name="COUNTRY" v-model="country" required/>
               <datalist id="order-country-select">
-                <option value="Россия"></option>
-                <option value="Казахстан"></option>
+                <option value="Россия">Россия</option>
+                <option value="Казахстан">Казахстан</option>
               </datalist>
               <span class="order-error">Ошибка заполнения поля</span>
             </div>
-            <div class="order-block__delivery order-block__label">
+            <div class="order-block__region order-block__label">
               <label class="order-block__subtitle" for="order-region">Регион:</label>
-              <input class="order-data__input order-region" list="order-region-select" id="order-region" name="REGION" v-model="region"/>
+              <input class="order-data__input order-region" list="order-region-select" id="order-region" name="REGION" v-model="region" required/>
               <datalist id="order-region-select">
-                <option value="Москва и МО"></option>
-                <option value="Владивосток"></option>
-                <option value="Краснодар"></option>
-                <option value="Владимир"></option>
-                <option value="Санкт-Петербург"></option>
+                <option value="Москва и МО">Москва и МО</option>
+                <option value="Владивосток">Владивосток</option>
+                <option value="Краснодар">Краснодар</option>
+                <option value="Владимир">Владимир</option>
+                <option value="Санкт-Петербург">Санкт-Петербург</option>
               </datalist>
               <span class="order-error">Ошибка заполнения поля</span>
             </div>
@@ -62,7 +62,7 @@
                 <input type="radio" class="order-delivery__input order-delivery" value="Почтой" v-model="delivery">
                 <span class="order-delivery__span">Почтой</span>
               </label>
-              <span class="order-error">Ошибка заполнения поля</span>
+              <span class="order-error">Ошибка выберите способ доставки!</span>
             </div>
           </div>
 
@@ -74,62 +74,62 @@
           <template v-if="courier">
             <div class="order-courier__wrapper">
               <div class="order-courier">
-                <label class="order-block__label">
-                  <input type="text" class="order-courier__input" name="STREET" placeholder="Улица">
-                  <span class="order-error">Ошибка заполнения поля</span>
-                </label>
-                <label class="order-block__label">
-                  <input type="text" class="order-courier__input" name="HOUSE" placeholder="Дом">
-                  <span class="order-error">Ошибка заполнения поля</span>
-                </label>
-                <label class="order-block__label">
-                  <input type="text" class="order-courier__input" name="ENTRANCE" placeholder="Подъезд">
-                  <span class="order-error">Ошибка заполнения поля</span>
-                </label>
-                <label class="order-block__label">
-                  <input type="text" class="order-courier__input" name="APARTMENT" placeholder="Квартира">
-                  <span class="order-error">Ошибка заполнения поля</span>
-                </label>
-                <label class="order-block__label">
-                  <input type="text" class="order-courier__input" name="INTERCOM" placeholder="Домофон">
-                  <span class="order-error">Ошибка заполнения поля</span>
-                </label>
+                <Input
+                    :data="checkFormInput.street"
+                    @change="event => changeHandler(event.target.value, checkFormInput.street.title)"
+                />
+                <Input
+                    :data="checkFormInput.house"
+                    @change="event => changeHandler(event.target.value, checkFormInput.house.title)"
+                />
+                <Input
+                    :data="checkFormInput.entrance"
+                    @change="event => changeHandler(event.target.value, checkFormInput.entrance.title)"
+                />
+                <Input
+                    :data="checkFormInput.apartment"
+                    @change="event => changeHandler(event.target.value, checkFormInput.apartment.title)"
+                />
+                <Input
+                    :data="checkFormInput.intercom"
+                    @change="event => changeHandler(event.target.value, checkFormInput.intercom.title)"
+                />
               </div>
               <textarea class="order-courier__textarea" id="COMMENTS" placeholder="Комментарии"></textarea>
             </div>
           </template>
           <template v-if="mail">
             <div class="order-mail">
-              <label class="order-block__label">
-                <input type="number" class="order-courier__input" name="INDEX" placeholder="Индекс">
-                <span class="order-error">Ошибка заполнения поля</span>
-              </label>
-              <label class="order-block__label">
-                <input type="text" class="order-courier__input" name="STREET" placeholder="Улица">
-                <span class="order-error">Ошибка заполнения поля</span>
-              </label>
-              <label class="order-block__label">
-                <input type="text" class="order-courier__input" name="HOUSE" placeholder="Дом">
-                <span class="order-error">Ошибка заполнения поля</span>
-              </label>
-              <label class="order-block__label">
-                <input type="text" class="order-courier__input" name="ENTRANCE" placeholder="Подъезд">
-                <span class="order-error">Ошибка заполнения поля</span>
-              </label>
-              <label class="order-block__label">
-                <input type="text" class="order-courier__input" name="APARTMENT" placeholder="Квартира">
-                <span class="order-error">Ошибка заполнения поля</span>
-              </label>
-              <label class="order-block__label">
-                <input type="text" class="order-courier__input" name="INTERCOM" placeholder="Домофон">
-                <span class="order-error">Ошибка заполнения поля</span>
-              </label>
+              <Input
+                  :data="checkFormInput.index"
+                  @change="event => changeHandler(event.target.value, checkFormInput.index.title)"
+              />
+              <Input
+                  :data="checkFormInput.street"
+                  @change="event => changeHandler(event.target.value, checkFormInput.street.title)"
+              />
+              <Input
+                  :data="checkFormInput.house"
+                  @change="event => changeHandler(event.target.value, checkFormInput.house.title)"
+              />
+              <Input
+                  :data="checkFormInput.entrance"
+                  @change="event => changeHandler(event.target.value, checkFormInput.entrance.title)"
+              />
+              <Input
+                  :data="checkFormInput.apartment"
+                  @change="event => changeHandler(event.target.value, checkFormInput.apartment.title)"
+              />
+              <Input
+                  :data="checkFormInput.intercom"
+                  @change="event => changeHandler(event.target.value, checkFormInput.intercom.title)"
+              />
             </div>
           </template>
 
           <div class="order-block">
             <div class="order-block__title">Оплата:</div>
-            <div class="order-block__label">
+            <div class="order-pay__wrap order-block__label">
               <label class="order-pay__label order-block__label">
                 <input type="radio" class="order-pay__input order-pay" value="Оплата через сайт" v-model="pay">
                 <span class="order-pay__span">Оплата через сайт</span>
@@ -142,7 +142,7 @@
                 <input type="radio" class="order-pay__input order-pay" value="Наличными" v-model="pay">
                 <span class="order-pay__span">Наличными</span>
               </label>
-              <span class="order-error">Ошибка заполнения поля</span>
+              <span class="order-error">Ошибка выберите способ оплаты!</span>
             </div>
           </div>
 
@@ -150,26 +150,27 @@
             <div class="order-final__price">Стоимость товара: <span>{{discharge(totalPrice)}} ₽</span></div>
             <div class="order-final__delivery">Стоимость доставки: <span>{{deliveryPriceHtml()}}</span></div>
             <div class="order-final__total">Итого: <span>{{ deliveryPrice != 'бесплатно' ? discharge(totalPrice + +deliveryPrice) : discharge(totalPrice)}} ₽</span></div>
-            <button type="submit" class="order-submit" @click="profite">Подтвердить</button>
+            <button type="submit" class="order-submit" @click="profiteNew">Подтвердить</button>
           </div>
         </form>
       </template>
       <template v-if="success">
         <h1>Заказ Оформлен!</h1>
-        <div class="success-line">Имя: <span>{{dataUser["name"]}}</span></div>
-        <div class="success-line">Фамилия: <span>{{dataUser["secondName"]}}</span></div>
-        <div class="success-line">Телефон: <span>{{dataUser["phone"]}}</span></div>
-        <div class="success-line">Почта: <span>{{dataUser["email"]}}</span></div>
-        <div class="success-line">Страна: <span>{{dataUser["country"]}}</span></div>
-        <div class="success-line">Регион: <span>{{dataUser["region"]}}</span></div>
-        <div class="success-line" v-if="dataUser['street']">Улица: <span>{{dataUser["street"]}}</span></div>
-        <div class="success-line" v-if="dataUser['house']">Дом: <span>{{dataUser["house"]}}</span></div>
-        <div class="success-line" v-if="dataUser['entrance']">Подъезд: <span>{{dataUser["entrance"]}}</span></div>
-        <div class="success-line" v-if="dataUser['apartment']">Квартира: <span>{{dataUser["apartment"]}}</span></div>
-        <div class="success-line" v-if="dataUser['intercom']">Домофон: <span>{{dataUser["intercom"]}}</span></div>
-        <div class="success-line" v-if="dataUser['comments']">Комментарии: <span>{{dataUser["comments"]}}</span></div>
-        <div class="success-line" v-if="dataUser['index']">Индекс: <span>{{dataUser["index"]}}</span></div>
-        <div class="success-line">Оплата: <span>{{dataUser["pay"]}}</span></div>
+        <div class="success-line">Имя: <span>{{checkFormInput["name"].value}}</span></div>
+        <div class="success-line">Фамилия: <span>{{checkFormInput["secondName"].value}}</span></div>
+        <div class="success-line">Телефон: <span>{{checkFormInput["phone"].value}}</span></div>
+        <div class="success-line">Почта: <span>{{checkFormInput["email"].value}}</span></div>
+        <div class="success-line">Страна: <span>{{country}}</span></div>
+        <div class="success-line">Регион: <span>{{region}}</span></div>
+        <div class="success-line">Доставка: <span>{{delivery}}</span></div>
+        <div class="success-line">Оплата: <span>{{pay}}</span></div>
+        <div class="success-line" v-if="checkFormInput['street'].value">Улица: <span>{{checkFormInput["street"].value}}</span></div>
+        <div class="success-line" v-if="checkFormInput['house'].value">Дом: <span>{{checkFormInput["house"].value}}</span></div>
+        <div class="success-line" v-if="checkFormInput['entrance'].value">Подъезд: <span>{{checkFormInput["entrance"].value}}</span></div>
+        <div class="success-line" v-if="checkFormInput['apartment'].value">Квартира: <span>{{checkFormInput["apartment"].value}}</span></div>
+        <div class="success-line" v-if="checkFormInput['intercom'].value">Домофон: <span>{{checkFormInput["intercom"].value}}</span></div>
+        <div class="success-line" v-if="checkFormInput['index'].value">Индекс: <span>{{checkFormInput["index"].value}}</span></div>
+        <div class="success-line">Итого: <span>{{deliveryPrice != 'бесплатно' ? discharge(totalPrice + +deliveryPrice) : discharge(totalPrice)}} ₽</span></div>
       </template>
     </div>
   </div>
@@ -178,15 +179,13 @@
 <script>
 import {useStore} from 'vuex'
 import {computed, onBeforeMount, ref} from 'vue';
+import Input from "@/components/Input";
 export default {
   name: "Order",
+  components: {Input},
   props: ['fortamPrice'],
   setup() {
     const store = useStore();
-    const name = ref('');
-    const secondName = ref('');
-    const phone = ref('');
-    const email = ref('');
     const country = ref('');
     const region = ref('');
     const address = ref('');
@@ -197,134 +196,276 @@ export default {
     const courier = ref(false);
     const mail = ref(false);
     const success = ref(false);
-    const dataUser = ref({
-      name: '',
-      secondName: '',
-      phone: '',
-      email: '',
-      country: '',
-      region: '',
-      street: '',
-      house: '',
-      entrance: '',
-      apartment: '',
-      intercom: '',
-      comments: '',
-      index: '',
+
+    const checkFormInput = ref({
+      name: {
+        title: 'name',
+        value: '',
+        label: 'Введите имя',
+        type: 'text',
+        valid: false,
+        touched: false,
+        errorMessage: 'Введите имя',
+        validation: {
+          required: true,
+        }
+      },
+      secondName: {
+        title: 'secondName',
+        value: '',
+        label: 'Введите фамилию',
+        type: 'text',
+        valid: false,
+        touched: false,
+        errorMessage: 'Введите фамилию',
+        validation: {
+          required: true,
+        },
+      },
+      phone: {
+        title: 'phone',
+        value: '',
+        label: 'Введите телефон',
+        type: 'tel',
+        valid: false,
+        touched: false,
+        errorMessage: 'Введите корректный телефон',
+        validation: {
+          required: true,
+          minLength: 11,
+          phone: true
+        },
+      },
+      email: {
+        title: 'email',
+        value: '',
+        label: 'Введите email',
+        type: 'email',
+        valid: false,
+        touched: false,
+        errorMessage: 'Введите корректный email',
+        validation: {
+          required: true,
+          email: true
+        },
+      },
+      country: {
+        title: 'country',
+        value: '',
+        label: 'Выберите страну',
+        type: 'text',
+        valid: false,
+        touched: false,
+        errorMessage: 'Введите страну',
+        validation: {
+          required: true,
+
+        },
+      },
+      region: {
+        title: 'region',
+        value: '',
+        label: 'Введите регион',
+        type: 'text',
+        valid: false,
+        touched: false,
+        errorMessage: 'Введите регион',
+        validation: {
+          required: true,
+
+        },
+      },
+      street: {
+        title: 'street',
+        value: '',
+        label: 'Введите улицу',
+        type: 'text',
+        valid: false,
+        touched: false,
+        errorMessage: 'Введите улицу',
+        validation: {
+          required: true,
+
+        },
+      },
+      house: {
+        title: 'house',
+        value: '',
+        label: 'Дом',
+        type: 'text',
+        valid: false,
+        touched: false,
+        errorMessage: 'Введите номер дома',
+        validation: {
+          required: true,
+
+        },
+      },
+      entrance: {
+        title: 'entrance',
+        value: '',
+        label: 'Подъезд',
+        type: 'text',
+        valid: false,
+        touched: false,
+        errorMessage: 'Введите номер подъезд',
+        validation: {
+          required: true,
+
+        },
+      },
+      apartment: {
+        title: 'apartment',
+        value: '',
+        label: 'Квартира',
+        type: 'text',
+        valid: false,
+        touched: false,
+        errorMessage: 'Введите номер квартиру',
+        validation: {
+          required: true,
+
+        },
+      },
+      intercom: {
+        title: 'intercom',
+        value: '',
+        label: 'Домофон',
+        type: 'text',
+        valid: false,
+        touched: false,
+        errorMessage: 'Введите номер домофон',
+        validation: {
+          required: true,
+
+        },
+      },
+      index: {
+        title: 'index',
+        value: '',
+        label: 'Индекс',
+        type: 'number',
+        valid: false,
+        touched: false,
+        errorMessage: 'Введите индекс',
+        validation: {
+          required: true,
+
+        },
+      }
     });
+
+    const validateControl = (value, validation) => {
+      if (!validation) {
+        return true
+      }
+
+      let isValid = true;
+
+      if (validation.required) {
+        isValid = value.trim() !== '' && isValid;
+      }
+      if (validation.phone) {
+        isValid = validPhone(value) && isValid;
+      }
+      if (validation.email) {
+        isValid = validEmail(value) && isValid;
+      }
+      if (validation.minLength) {
+        isValid = value.length >= validation.minLength && isValid;
+      }
+
+      return isValid;
+    }
+
+    const changeHandler = (event, controlName) => {
+      const formControls = { ...checkFormInput.value };
+      const control = {...formControls[controlName]}
+
+      control.value = event;
+      control.touched = true;
+      control.valid = validateControl(control.value, control.validation)
+
+      formControls[controlName] = control;
+
+      let isFormValid = true;
+      Object.keys(formControls).forEach(name => {
+        isFormValid = formControls[name].valid && isFormValid;
+      });
+
+      return checkFormInput.value = formControls
+    }
+
+    const profiteNew = (e) => {
+      e.preventDefault();
+      let countCheck = [];
+
+      Object.values(checkFormInput.value).forEach(item => {
+        if (!item.valid || !item.touched || !item.value) {
+          item.touched = true;
+
+          if (delivery.value === 'Самовывоз' && (item.title === 'street' || item.title === 'house' || item.title === 'entrance' || item.title ===  'apartment' || item.title === 'intercom' || item.title === 'index')) {
+            item.touched = false
+          }
+
+          if (delivery.value === 'Курьером' && item.title === 'index') {
+            item.touched = false
+          }
+        } else {
+          countCheck[item.title] = item;
+        }
+
+      })
+
+      const countryCheck = document.querySelector('.order-block__country .order-error');
+      const regionCheck = document.querySelector('.order-block__region .order-error');
+      const deliverCheck = document.querySelector('.order-delivery__wrap .order-error');
+      const payCheck = document.querySelector('.order-pay__wrap .order-error');
+
+      if (!country.value) {
+        countryCheck.classList.add('_isError')
+      } else {
+        countryCheck.classList.remove('_isError')
+        countCheck.country = country.value;
+      }
+
+      if (!region.value) {
+        regionCheck.classList.add('_isError')
+      } else {
+        regionCheck.classList.remove('_isError')
+        countCheck.region = region.value;
+      }
+
+
+      if (!delivery.value) {
+        deliverCheck.classList.add('_isError')
+      } else {
+        deliverCheck.classList.remove('_isError')
+        countCheck.delivery = delivery.value;
+      }
+      if (!pay.value) {
+        payCheck.classList.add('_isError')
+      } else {
+        payCheck.classList.remove('_isError')
+        countCheck.pay = pay.value;
+      }
+
+      if (countCheck.delivery === 'Самовывоз' && Object.keys(countCheck).length === 8) {
+        return success.value = true
+      }
+      if (countCheck.delivery === 'Курьером' && Object.keys(countCheck).length === 13) {
+        return success.value = true
+      }
+      if (countCheck.delivery === 'Почтой' && Object.keys(countCheck).length === 14) {
+        return success.value = true
+      }
+    }
+
+
     onBeforeMount(() => {
       store.getters.localStor
     })
-    const profite = (e) => {
-      e.preventDefault();
-      if (name.value) {
-        dataUser.value.name = name.value.trim();
-        document.querySelector('.order input[name="NAME"]').closest('.order-block__label').classList.remove('isError');
-      } else {
-        document.querySelector('.order input[name="NAME"]').closest('.order-block__label').classList.add('isError');
-      }
-      if (secondName.value) {
-        dataUser.value.secondName = secondName.value.trim();
-        document.querySelector('.order input[name="SECONDNAME"]').closest('.order-block__label').classList.remove('isError');
-      } else {
-        document.querySelector('.order input[name="SECONDNAME"]').closest('.order-block__label').classList.add('isError');
-      }
-      if (phone.value && validPhone()) {
-        dataUser.value.phone = phone.value;
-        document.querySelector('.order input[name="PHONE"]').closest('.order-block__label').classList.remove('isError');
-      } else {
-        document.querySelector('.order input[name="PHONE"]').closest('.order-block__label').classList.add('isError');
-      }
-      if (email.value && validEmail()) {
-        dataUser.value.email = email.value;
-        document.querySelector('.order input[name="EMAIL"]').closest('.order-block__label').classList.remove('isError');
-      } else {
-        document.querySelector('.order input[name="EMAIL"]').closest('.order-block__label').classList.add('isError');
-      }
-      if (country.value) {
-        dataUser.value.country = country.value;
-        document.querySelector('.order input[name="COUNTRY"]').closest('.order-block__label').classList.remove('isError');
-      } else {
-        document.querySelector('.order input[name="COUNTRY"]').closest('.order-block__label').classList.add('isError');
-      }
-      if (region.value) {
-        dataUser.value.region = region.value;
-        document.querySelector('.order input[name="REGION"]').closest('.order-block__label').classList.remove('isError');
-      } else {
-        document.querySelector('.order input[name="REGION"]').closest('.order-block__label').classList.add('isError');
-      }
-      if (delivery.value.length) {
-        switch (delivery.value) {
-          case 'Курьером':
-            profiteCheckInput();
-            dataUser.value.comments = document.querySelector('.order #COMMENTS').value.trim();
-            break;
-          case 'Почтой':
-            profiteCheckInput();
-            if (document.querySelector('.order .order-mail input[name="INDEX"]').value.trim()) {
-              dataUser.value.index = document.querySelector('.order .order-mail input[name="INDEX"]').value.trim();
-              document.querySelector('.order .order-mail input[name="INDEX"]').closest('.order-block__label').classList.remove('isError');
-            } else {
-              document.querySelector('.order .order-mail input[name="INDEX"]').closest('.order-block__label').classList.add('isError');
-            }
-            break;
-        }
-      }
-      dataUser.value.pay = pay.value;
-      checkInput();
-    }
-    const profiteCheckInput = () => {
-      if (document.querySelector('.order .order-mail input[name="STREET"]').value) {
-        dataUser.value.street = document.querySelector('.order .order-mail input[name="STREET"]').value;
-        document.querySelector('.order .order-mail input[name="STREET"]').closest('.order-block__label').classList.remove('isError');
-      } else {
-        document.querySelector('.order .order-mail input[name="STREET"]').closest('.order-block__label').classList.add('isError');
-      }
-      if (document.querySelector('.order .order-mail input[name="HOUSE"]').value) {
-        dataUser.value.house = document.querySelector('.order .order-mail input[name="HOUSE"]').value;
-        document.querySelector('.order .order-mail input[name="HOUSE"]').closest('.order-block__label').classList.remove('isError');
-      } else {
-        document.querySelector('.order .order-mail input[name="HOUSE"]').closest('.order-block__label').classList.add('isError');
-      }
-      if (document.querySelector('.order .order-mail input[name="ENTRANCE"]').value) {
-        dataUser.value.entrance = document.querySelector('.order .order-mail input[name="ENTRANCE"]').value;
-        document.querySelector('.order .order-mail input[name="ENTRANCE"]').closest('.order-block__label').classList.remove('isError');
-      } else {
-        document.querySelector('.order .order-mail input[name="ENTRANCE"]').closest('.order-block__label').classList.add('isError');
-      }
-      if (document.querySelector('.order .order-mail input[name="APARTMENT"]').value) {
-        dataUser.value.apartment = document.querySelector('.order .order-mail input[name="APARTMENT"]').value;
-        document.querySelector('.order .order-mail input[name="APARTMENT"]').closest('.order-block__label').classList.remove('isError');
-      } else {
-        document.querySelector('.order .order-mail input[name="APARTMENT"]').closest('.order-block__label').classList.add('isError');
-      }
-      if (document.querySelector('.order .order-mail input[name="INTERCOM"]').value) {
-        dataUser.value.intercom = document.querySelector('.order .order-mail input[name="INTERCOM"]').value;
-        document.querySelector('.order .order-mail input[name="INTERCOM"]').closest('.order-block__label').classList.remove('isError');
-      } else {
-        document.querySelector('.order .order-mail input[name="INTERCOM"]').closest('.order-block__label').classList.add('isError');
-      }
-    }
-    const checkInput = () => {
-      const obj = Object.entries(dataUser.value);
-      let idx = 0;
-      obj.forEach(el => {
-        if (el[1] == '') {
-          if (el[0] != 'comments') {
-            el.check = false;
-            idx--;
-          }
-        } else{
-          el.check = true;
-          idx++;
-        }
-      })
-      if (idx >= 11) {
-        success.value = true;
-      } else if (delivery.value == 'Самовывоз' && idx == 1) {
-        success.value = true;
-      }
-    }
+
     const deliveryPriceHtml = () => {
       if (delivery.value.length) {
         switch (delivery.value) {
@@ -349,17 +490,13 @@ export default {
     const discharge = (price) =>  {
       return price.toLocaleString()
     };
-    const validPhone = () => {
-      return /(\d?)(\d{3})(\d{3})(\d{2})(\d{2})/g.test(phone.value);
+    const validPhone = value => {
+      return /(\d?)(\d{3})(\d{3})(\d{2})(\d{2})/g.test(value);
     };
-    const validEmail = ()=> {
-      return /^[\w]{1}[\w-\]*@[\w-]+\.[a-z]{2,4}$/i.test(email.value);
+    const validEmail = value => {
+      return /^[\w]{1}[\w-\]*@[\w-]+\.[a-z]{2,4}$/i.test(value);
     };
     return {
-      name,
-      secondName,
-      phone,
-      email,
       country,
       region,
       address,
@@ -372,9 +509,12 @@ export default {
       discharge,
       deliveryPriceHtml,
       totalPrice: computed(() => store.getters.totalPrice),
-      profite,
       success,
-      dataUser
+
+
+      checkFormInput,
+      changeHandler,
+      profiteNew
     }
   }
 }
@@ -493,6 +633,9 @@ export default {
   .isError .order-error{
     display: block;
   }
+  .order-error._isError{
+    display: block
+  }
   .isError .order-data__input{
     border: 1px solid red;
   }
@@ -525,7 +668,7 @@ export default {
   }
   .order-courier{
     display: grid;
-    grid-template-columns: repeat(auto-fill, 126px);
+    grid-template-columns: repeat(auto-fill, 195px);
     grid-gap: 10px;
   }
   .order-courier__input{
@@ -542,7 +685,7 @@ export default {
   }
   .order-mail{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, 195px);
     grid-gap: 10px;
     margin-bottom: 20px;
   }
