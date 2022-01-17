@@ -11,6 +11,9 @@
             <router-link :to="{name: 'About'}" tag="a" exact class="header-top__link">О нас</router-link>
           </li>
           <li class="footer-item">
+            <router-link :to="{name: 'Blog'}" tag="a" exact class="header-top__link">Блог</router-link>
+          </li>
+          <li class="footer-item">
             <router-link :to="{name: 'Contacts'}" tag="a" exact class="header-top__link">Контакты</router-link>
           </li>
         </ul>
@@ -54,7 +57,7 @@ export default {
   }
   .header-top__list{
     display: grid;
-    grid-template-columns: repeat(3, minmax(20px, max-content));
+    grid-template-columns: repeat(4, minmax(20px, max-content));
     grid-column-gap: 20px;
     justify-content: right;
     align-items: center;

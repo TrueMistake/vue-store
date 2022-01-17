@@ -24,6 +24,9 @@
             <router-link :to="{name: 'About'}" tag="a" exact class="nav-link">О нас</router-link>
           </li>
           <li class="footer-item">
+            <router-link :to="{name: 'Blog'}" tag="a" exact class="nav-link">Блог</router-link>
+          </li>
+          <li class="footer-item">
             <router-link :to="{name: 'Contacts'}" tag="a" exact class="nav-link">Контакты</router-link>
           </li>
           <li class="footer-item">

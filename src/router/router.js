@@ -11,6 +11,8 @@ import Favorites from "../views/Favorites";
 import PageNotFound from "../views/404";
 import Search from "@/views/Search";
 import Privacy from "@/views/Privacy";
+import Blog from "@/views/Blog/Blog";
+import BlogDetail from "@/views/Blog/BlogDetail";
 
 
 const routes = [
@@ -52,6 +54,18 @@ const routes = [
         path: '/about',
         name: 'About',
         component: About
+    },
+    {
+        path: '/blog',
+        name: 'Blog',
+        component: Blog,
+        props: true
+    },
+    {
+        path: '/blog/:id',
+        name: 'BlogDetail',
+        component: BlogDetail,
+        props: true
     },
     {
         path: '/basket',

@@ -6,6 +6,7 @@
       <app-slider-product title="КУРТКИ МУЖСКИЕ" :products="sliderMan"></app-slider-product>
       <app-slider-product title="ЖЕНСКИЕ КОФТЫ" :products="sliderWoman"></app-slider-product>
     </div>
+    <blog-main></blog-main>
     <h1>Магазин True</h1>
     <div class="main-text">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eligendi eum fugiat harum nam obcaecati odit omnis
@@ -24,6 +25,7 @@ import appSwiper from '../components/MainSlider'
 import appSliderProduct from '../components/SliderProducts'
 import {useStore} from 'vuex';
 import {onBeforeMount, computed} from 'vue'
+import BlogMain from "@/components/BlogMain";
 
 export default {
   name: 'Main',
@@ -42,7 +44,8 @@ export default {
   },
   components: {
     'app-swiper': appSwiper,
-    'app-slider-product': appSliderProduct
+    'app-slider-product': appSliderProduct,
+    'blog-main': BlogMain
   }
 }
 </script>

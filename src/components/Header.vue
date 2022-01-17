@@ -35,7 +35,7 @@ export default {
     const store = useStore();
 
     onBeforeMount(() => {
-      store.getters.localStor
+      store.getters.localStore
     });
 
     return{

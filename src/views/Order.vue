@@ -486,7 +486,7 @@ export default {
 
 
     onBeforeMount(() => {
-      store.getters.localStor
+      store.getters.localStore
     })
 
     const deliveryPriceHtml = () => {
