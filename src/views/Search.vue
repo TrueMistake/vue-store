@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import appProducts from "./../components/Products";
+import appProducts from "../components/Products/Products";
 import {onBeforeMount,ref} from 'vue'
 import {useStore} from "vuex";
 

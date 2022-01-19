@@ -17,7 +17,7 @@
 <script>
 import {computed} from 'vue';
 import {useStore} from 'vuex';
-import appProducts from '../components/Products';
+import appProducts from '../components/Products/Products';
 
 export default {
   name: "Favorites",

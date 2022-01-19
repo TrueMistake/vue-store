@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import appSwiper from '../components/MainSlider'
-import appSliderProduct from '../components/SliderProducts'
+import appSwiper from '../components/Sliders/MainSlider'
+import appSliderProduct from '../components/Sliders/SliderProducts'
 import {useStore} from 'vuex';
 import {onBeforeMount, computed} from 'vue'
-import BlogMain from "@/components/BlogMain";
+import BlogMain from "@/components/BlogMain/BlogMain";
 
 export default {
   name: 'Main',

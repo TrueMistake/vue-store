@@ -181,7 +181,7 @@
 <script>
 import {useStore} from 'vuex'
 import {computed, onBeforeMount, ref} from 'vue';
-import Input from "@/components/Input";
+import Input from "@/components/UI/Input";
 export default {
   name: "Order",
   components: {Input},

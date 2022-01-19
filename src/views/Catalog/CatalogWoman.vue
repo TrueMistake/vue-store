@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import appFilter from "../../components/Filter";
-import appSort from "../../components/Sort";
-import appProducts from "../../components/Products";
+import appFilter from "../../components/Filter/Filter";
+import appSort from "../../components/Sort/Sort";
+import appProducts from "../../components/Products/Products";
 import {onBeforeMount,computed} from 'vue'
 import {useStore} from "vuex";
 

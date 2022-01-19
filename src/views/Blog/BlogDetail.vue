@@ -5,6 +5,7 @@
           <h1 class="blog-detail__title">{{detailPost.title}}</h1>
           <div class="blog-detail__body">{{detailPost.body}}</div>
         </div>
+        <comments :id="props.id"/>
       </div>
     </div>
 </template>
@@ -12,6 +13,7 @@
 <script>
 import {useStore} from "vuex";
 import {onBeforeMount, computed} from 'vue'
+import Comments from '@/components/Comments/Comments'
 
 export default {
   name: "BlogDetail",
@@ -24,8 +26,12 @@ export default {
     })
 
     return {
-      detailPost: computed(() => store.getters.detailPost)
+      detailPost: computed(() => store.getters.detailPost),
+      props
     }
+  },
+  components: {
+    'comments': Comments
   }
 }
 </script>

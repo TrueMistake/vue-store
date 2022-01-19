@@ -5,7 +5,8 @@ export default {
         posts: [],
         allCount: null,
         loading: false,
-        detailPost: null
+        detailPost: null,
+        allCommentsPost: []
     },
     mutations: {
         getPosts(state, payload) {
@@ -20,6 +21,9 @@ export default {
         },
         getDetailPost(state, payload) {
             state.detailPost = payload
+        },
+        getAllCommentsPost(state, payload) {
+            state.allCommentsPost = payload;
         }
     },
     actions: {
@@ -61,11 +65,17 @@ export default {
                 state.commit('getPosts', response.data)
             })
         },
+        async getAllCommentsPost(state, payload) {
+            state.commit('getLoading', true);
+            await axios.get(`https://jsonplaceholder.typicode.com/posts/${payload}/comments`)
+                .then(response => state.commit('getAllCommentsPost', response.data))
+        }
     },
     getters: {
         getPosts: state => state.posts,
         loading: state => state.loading,
         allCount: state => state.allCount,
         detailPost: state => state.detailPost,
+        allCommentsPost: state => state.allCommentsPost
     }
 }
